@@ -1,0 +1,322 @@
+\hypertarget{classdiccionario}{\section{diccionario$<$ Key, Def $>$ Class Template Reference}
+\label{classdiccionario}\index{diccionario$<$ Key, Def $>$@{diccionario$<$ Key, Def $>$}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdiccionario_1_1const__iterator}{const\-\_\-iterator}
+\begin{DoxyCompactList}\small\item\em class \hyperlink{classdiccionario_1_1const__iterator}{const\-\_\-iterator} forward iterador constante sobre el diccionario, Lectura \hyperlink{classdiccionario_1_1const__iterator}{const\-\_\-iterator} ,operator$\ast$, operator++, operator++(int) operator=, operator==, operator!= \end{DoxyCompactList}\item 
+class \hyperlink{classdiccionario_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em class iterator forward iterador sobre el diccionario, Lectura y Escritura iterator ,operator$\ast$, operator++, \hyperlink{classdiccionario_1_1iterator_a64f78428635fb5d522c3fb74c620a730}{operator++(int)} operator=, operator==, operator!= \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classdiccionario_a38177da304f15a6a4c2924b96a449f7c}{typedef pair$<$ Key, Def $>$ {\bfseries entrada}}\label{classdiccionario_a38177da304f15a6a4c2924b96a449f7c}
+
+\item 
+\hypertarget{classdiccionario_a20de9fe0de835a42059ae0679e7a3ead}{typedef pair$<$ const Key, Def $>$ {\bfseries value\-\_\-type}}\label{classdiccionario_a20de9fe0de835a42059ae0679e7a3ead}
+
+\item 
+\hypertarget{classdiccionario_a5344a493b35b0764bf16aaf46d1a7e3c}{typedef unsigned int {\bfseries size\-\_\-type}}\label{classdiccionario_a5344a493b35b0764bf16aaf46d1a7e3c}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdiccionario_ad96220ec5717fc4459db4143f5574f58}{diccionario} ()
+\begin{DoxyCompactList}\small\item\em constructor primitivo. \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_a6fc7b9ee97be65525d40e1e406963508}{diccionario} (const entrada \&nula)
+\begin{DoxyCompactList}\small\item\em constructor primitivo. \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_adda370097759e831b5fae25be821dd10}{diccionario} (const \hyperlink{classdiccionario}{diccionario} \&d)
+\begin{DoxyCompactList}\small\item\em constructor de copia \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_1_1iterator}{iterator} \hyperlink{classdiccionario_aadcc6fd35bde4ca41a5b27854021ae3d}{begin} ()
+\begin{DoxyCompactList}\small\item\em entrada nula del diccionario \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_1_1iterator}{iterator} \hyperlink{classdiccionario_a9e47a236fec771b6037d9ebd864d13fb}{end} ()
+\begin{DoxyCompactList}\small\item\em entrada nula del diccionario \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_1_1const__iterator}{const\-\_\-iterator} \hyperlink{classdiccionario_a36cc7a6aa3100b901e09c37a0d6bfbc3}{begin} () const 
+\begin{DoxyCompactList}\small\item\em entrada nula del diccionario \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_1_1const__iterator}{const\-\_\-iterator} \hyperlink{classdiccionario_ac4c75009b8e345000379781ce965c9f8}{end} () const 
+\begin{DoxyCompactList}\small\item\em entrada nula del diccionario \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario_1_1iterator}{iterator} \hyperlink{classdiccionario_af2d4a60ea376fa3aeb46c993a6184419}{find} (const Key \&s)
+\begin{DoxyCompactList}\small\item\em busca una cadena en el diccionario \end{DoxyCompactList}\item 
+Def \& \hyperlink{classdiccionario_affedc5c8b077e6779cd349a434582a6f}{operator\mbox{[}$\,$\mbox{]}} (const Key \&s)
+\begin{DoxyCompactList}\small\item\em busca una cadena en el diccionario \end{DoxyCompactList}\item 
+const Def \& \hyperlink{classdiccionario_a0ef2ff66bfb8ac71042d016ca8b3f7a8}{operator\mbox{[}$\,$\mbox{]}} (const Key \&s) const 
+\begin{DoxyCompactList}\small\item\em Consulta una entrada en el diccionario. \end{DoxyCompactList}\item 
+\hyperlink{classdiccionario}{diccionario} \& \hyperlink{classdiccionario_a48db160684851f90efec8b9d91a8a041}{operator=} (const \hyperlink{classdiccionario}{diccionario} \&org)
+\begin{DoxyCompactList}\small\item\em operador de asignación \end{DoxyCompactList}\item 
+size\-\_\-type \hyperlink{classdiccionario_a47ab5f44b87c4346e49713ab77126931}{size} () const 
+\begin{DoxyCompactList}\small\item\em numero de entradas en el diccionario \end{DoxyCompactList}\item 
+\hypertarget{classdiccionario_a90be88011567664ed276eb887f6cad96}{bool \hyperlink{classdiccionario_a90be88011567664ed276eb887f6cad96}{empty} () const }\label{classdiccionario_a90be88011567664ed276eb887f6cad96}
+
+\begin{DoxyCompactList}\small\item\em vacia Chequea si el priority\-\_\-queue esta vacio (\hyperlink{classdiccionario_a47ab5f44b87c4346e49713ab77126931}{size()}==0) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classdiccionario_a67171474c4da6cc8efe0c7fafefd2b2d}{class {\bfseries iterator}}\label{classdiccionario_a67171474c4da6cc8efe0c7fafefd2b2d}
+
+\item 
+ostream \& \hyperlink{classdiccionario_a7a819b00c6494dea3e62c0c9f3652372}{operator$<$$<$} (ostream \&sal, const \hyperlink{classdiccionario}{diccionario}$<$ Key, Def $>$ \&D)
+\begin{DoxyCompactList}\small\item\em imprime todas las entradas del diccionario \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdiccionario_ad96220ec5717fc4459db4143f5574f58}{\index{diccionario@{diccionario}!diccionario@{diccionario}}
+\index{diccionario@{diccionario}!diccionario@{diccionario}}
+\subsubsection[{diccionario}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key , typename Def $>$ {\bf diccionario}$<$ Key, Def $>$\-::{\bf diccionario} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_ad96220ec5717fc4459db4143f5574f58}
+
+
+constructor primitivo. 
+
+\begin{DoxyPostcond}{Postcondition}
+
+\end{DoxyPostcond}
+\hypertarget{classdiccionario_a6fc7b9ee97be65525d40e1e406963508}{\index{diccionario@{diccionario}!diccionario@{diccionario}}
+\index{diccionario@{diccionario}!diccionario@{diccionario}}
+\subsubsection[{diccionario}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key = string, typename Def = int$>$ {\bf diccionario}$<$ Key, Def $>$\-::{\bf diccionario} (
+\begin{DoxyParamCaption}
+\item[{const entrada \&}]{nula}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_a6fc7b9ee97be65525d40e1e406963508}
+
+
+constructor primitivo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nula} & representa a la entrada nula para el diccionario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+define la entrada nula 
+\end{DoxyPostcond}
+\hypertarget{classdiccionario_adda370097759e831b5fae25be821dd10}{\index{diccionario@{diccionario}!diccionario@{diccionario}}
+\index{diccionario@{diccionario}!diccionario@{diccionario}}
+\subsubsection[{diccionario}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key , typename Def $>$ {\bf diccionario}$<$ Key, Def $>$\-::{\bf diccionario} (
+\begin{DoxyParamCaption}
+\item[{const {\bf diccionario}$<$ Key, Def $>$ \&}]{d}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_adda370097759e831b5fae25be821dd10}
+
+
+constructor de copia 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em d} & diccionario a copiar \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdiccionario_aadcc6fd35bde4ca41a5b27854021ae3d}{\index{diccionario@{diccionario}!begin@{begin}}
+\index{begin@{begin}!diccionario@{diccionario}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key , typename Def $>$ {\bf diccionario}$<$ Key, Def $>$\-::{\bf iterator} {\bf diccionario}$<$ Key, Def $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_aadcc6fd35bde4ca41a5b27854021ae3d}
+
+
+entrada nula del diccionario 
+
+\begin{DoxyReturn}{Returns}
+Devuelve el iterador a la primera posición del diccionario. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+no modifica el diccionario
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]implementa esta función \end{DoxyRefDesc}
+\hypertarget{classdiccionario_a36cc7a6aa3100b901e09c37a0d6bfbc3}{\index{diccionario@{diccionario}!begin@{begin}}
+\index{begin@{begin}!diccionario@{diccionario}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key = string, typename Def = int$>$ {\bf const\-\_\-iterator} {\bf diccionario}$<$ Key, Def $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classdiccionario_a36cc7a6aa3100b901e09c37a0d6bfbc3}
+
+
+entrada nula del diccionario 
+
+\begin{DoxyReturn}{Returns}
+Devuelve el iterador a la primera posición del diccionario. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+no modifica el diccionario 
+\end{DoxyPostcond}
+\hypertarget{classdiccionario_a9e47a236fec771b6037d9ebd864d13fb}{\index{diccionario@{diccionario}!end@{end}}
+\index{end@{end}!diccionario@{diccionario}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key , typename Def $>$ {\bf diccionario}$<$ Key, Def $>$\-::{\bf iterator} {\bf diccionario}$<$ Key, Def $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_a9e47a236fec771b6037d9ebd864d13fb}
+
+
+entrada nula del diccionario 
+
+\begin{DoxyReturn}{Returns}
+Devuelve el iterador a la ultima posición del diccionario. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+no modifica el diccionario
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]implementa esta función \end{DoxyRefDesc}
+\hypertarget{classdiccionario_ac4c75009b8e345000379781ce965c9f8}{\index{diccionario@{diccionario}!end@{end}}
+\index{end@{end}!diccionario@{diccionario}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key = string, typename Def = int$>$ {\bf const\-\_\-iterator} {\bf diccionario}$<$ Key, Def $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classdiccionario_ac4c75009b8e345000379781ce965c9f8}
+
+
+entrada nula del diccionario 
+
+\begin{DoxyReturn}{Returns}
+Devuelve el iterador a la ultima posición del diccionario. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+no modifica el diccionario 
+\end{DoxyPostcond}
+\hypertarget{classdiccionario_af2d4a60ea376fa3aeb46c993a6184419}{\index{diccionario@{diccionario}!find@{find}}
+\index{find@{find}!diccionario@{diccionario}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key, typename Def $>$ {\bf diccionario}$<$ Key, Def $>$\-::{\bf iterator} {\bf diccionario}$<$ Key, Def $>$\-::find (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_af2d4a60ea376fa3aeb46c993a6184419}
+
+
+busca una cadena en el diccionario 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & cadena a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un iterador que apunta a la entrada en el diccionario. Si la palabra s no se encuentra devuelve \hyperlink{classdiccionario_a9e47a236fec771b6037d9ebd864d13fb}{end()} 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+no modifica el diccionario.
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]implementa esta función \end{DoxyRefDesc}
+\hypertarget{classdiccionario_a48db160684851f90efec8b9d91a8a041}{\index{diccionario@{diccionario}!operator=@{operator=}}
+\index{operator=@{operator=}!diccionario@{diccionario}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key , typename Def $>$ {\bf diccionario}$<$ Key, Def $>$ \& {\bf diccionario}$<$ Key, Def $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf diccionario}$<$ Key, Def $>$ \&}]{org}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_a48db160684851f90efec8b9d91a8a041}
+
+
+operador de asignación 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em org} & diccionario a copiar. Crea un diccionario duplicado exacto de org. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdiccionario_affedc5c8b077e6779cd349a434582a6f}{\index{diccionario@{diccionario}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!diccionario@{diccionario}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key, typename Def $>$ Def \& {\bf diccionario}$<$ Key, Def $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classdiccionario_affedc5c8b077e6779cd349a434582a6f}
+
+
+busca una cadena en el diccionario 
+
+\begin{DoxyVerb}    @param s cadena a buscar
+    @return un const_iterador que apunta a la entrada en el diccionario. Si la palabra s no se encuentra devuelve end()
+    @post no modifica el diccionario.
+    const_iterator  diccionario<K,D>::find( const Key & s) const;
+\end{DoxyVerb}
+
+
+/$\ast$$\ast$ Consulta/\-Inserta una entrada en el diccionario.
+
+Busca la cadena s en el diccionario, si la encuentra devuelve una referencia al numero de ocurrencias de la misma en caso contrario la inserta, con frecuencia cero, devolviendo una referencia a este valor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & cadena a insertar \\
+\hline
+\mbox{\tt out}  & {\em int} & \& referencia a la definicion asociada a la entrada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Si s no esta en el diccionario, el \hyperlink{classdiccionario_a47ab5f44b87c4346e49713ab77126931}{size()} sera incrementado en 1. 
+\end{DoxyPostcond}
+\hypertarget{classdiccionario_a0ef2ff66bfb8ac71042d016ca8b3f7a8}{\index{diccionario@{diccionario}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!diccionario@{diccionario}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key, typename Def $>$ const Def \& {\bf diccionario}$<$ Key, Def $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{s}
+\end{DoxyParamCaption}
+) const}}\label{classdiccionario_a0ef2ff66bfb8ac71042d016ca8b3f7a8}
+
+
+Consulta una entrada en el diccionario. 
+
+Busca la cadena s en el diccionario, si la encuentra devuelve una referencia constante al numero de ocurrencias de la misma, si no la encuentra da un mensaje de error.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & cadena a insertar \\
+\hline
+\mbox{\tt out}  & {\em int} & \& referencia constante a la definicion asociada a la entrada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+No se modifica el diccionario. 
+\end{DoxyPostcond}
+\hypertarget{classdiccionario_a47ab5f44b87c4346e49713ab77126931}{\index{diccionario@{diccionario}!size@{size}}
+\index{size@{size}!diccionario@{diccionario}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key , typename Def $>$ {\bf diccionario}$<$ Key, Def $>$\-::size\-\_\-type {\bf diccionario}$<$ Key, Def $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classdiccionario_a47ab5f44b87c4346e49713ab77126931}
+
+
+numero de entradas en el diccionario 
+
+\begin{DoxyPostcond}{Postcondition}
+No se modifica el diccionario. 
+\end{DoxyPostcond}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classdiccionario_a7a819b00c6494dea3e62c0c9f3652372}{\index{diccionario@{diccionario}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!diccionario@{diccionario}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Key = string, typename Def = int$>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{sal, }
+\item[{const {\bf diccionario}$<$ Key, Def $>$ \&}]{D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classdiccionario_a7a819b00c6494dea3e62c0c9f3652372}
+
+
+imprime todas las entradas del diccionario 
+
+\begin{DoxyPostcond}{Postcondition}
+No se modifica el diccionario. 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]implementar esta funcion \end{DoxyRefDesc}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+diccionario.\-h\item 
+diccionario\-V1.\-hxx\end{DoxyCompactItemize}

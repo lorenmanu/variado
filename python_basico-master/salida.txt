@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1252" />
+<meta name="description" content="SWAD is a free-software platform for learning and educational management" />
+<meta name="keywords" content="SWAD,SWAD platform,shared workspace at a distance,sistema web de apoyo a la docencia,SWADroid,LMS,Learning Management System,VLE,Virtual Learning Environment,e-learning,b-learning,m-learning,platform,plataforma,teaching,docencia,learning,aprendizaje,open source,free software,software libre,virtual" />
+<title>SWAD UGR</title>
+<link rel="canonical" href="https://swad.ugr.es" />
+<link type="image/x-icon" href="https://swad.ugr.es/swad/icon/favicon.ico" rel="icon" />
+<link type="image/x-icon" href="https://swad.ugr.es/swad/icon/favicon.ico" rel="shortcut icon" />
+<link rel="StyleSheet" href="https://swad.ugr.es/swad/swad_desktop.css" type="text/css" />
+<script type="text/javascript" src="https://swad.ugr.es/swad/swad.js"></script>
+<script type="text/javascript" src="https://swad.ugr.es/swad/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+function init(){
+	IsToday = true;
+	StrToday = "29 abr";
+	Hour = 23;
+	Minute = 6;
+	writeClock();
+	NumUsrsCon = 0;
+	writeClockConnected();
+	LoginForm = document.getElementById('UsrId');
+	if (LoginForm)
+		LoginForm.focus();
+	ActionAJAX = "es";
+	setTimeout("refreshConnected()",508000);
+}
+</script>
+<script type="text/javascript">
+var RefreshParamNxtActCon = "act=845";
+var RefreshParamNxtActLog = "act=994";
+var RefreshParamIdSes = "ses=";
+var RefreshParamCrsCod = "crs=-1";
+</script>
+<script type="text/javascript">  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-42150741-1', 'ugr.es');  ga('send', 'pageview');</script></head>
+<body onload="init()">
+<div id="zoomLyr" class="ZOOM"><img id="zoomImg" src="https://swad.ugr.es/swad/icon/_.gif" alt="" class="IMG_USR" /><div id="zoomTxt" style="text-align:center;"></div></div><table style="width:100%;"><tr style="background-image:url('https://swad.ugr.es/swad/icon/theme/white/head_row1_1x48.gif'); background-repeat:repeat-x;"><td style="width:128px; text-align:center;"><a href="https://swad.ugr.es" target="_blank"><img src="https://swad.ugr.es/swad/icon/theme/white/swad112x32.gif" alt="SWAD (Shared Workspace At a Distance)" style="width:112px; height:32px; margin:0 auto; vertical-align:middle;" /></a></td><td style="text-align:center; vertical-align:middle;"><table style="width:100%;"><tr><td class="WHITE_HEAD" style="text-align:left; vertical-align:middle;"><form method="post" action="https://swad.ugr.es/es" id="form_0"><input type="hidden" name="act" value="628" /><input type="hidden" name="Scope" value="1" /><input type="text" name="Search" size="30" maxlength="255" value="" placeholder="Buscar..." style="margin:0;" /><input type="image" src="https://swad.ugr.es/swad/icon/theme/white/search16x16.gif" alt="Buscar" title="Buscar" class="ICON16x16" style="padding-top:3px;vertical-align:top;" /></form></td><td class="WHITE_HEAD" style="text-align:right; vertical-align:middle;"><form method="post" action="https://swad.ugr.es/es" id="form_1"><input type="hidden" name="act" value="992" /><select name="Lan" style="width:90px;margin:0;" onchange="javascript:document.getElementById('form_1').submit();"><option value="0">Catal&agrave;</option><option value="1">Deutsch</option><option value="2">English</option><option value="3" selected="selected">Espa&ntilde;ol</option><option value="4">Fran&ccedil;ais</option><option value="5">Ava&ntilde;e'&#7869;</option><option value="6">Italiano</option><option value="7">Polski</option><option value="8">Portugu&ecirc;s</option></select></form></td></tr></table></td><td class="WHITE_HEAD" style="width:128px; text-align:center; vertical-align:middle;"><form method="post" action="https://swad.ugr.es/es" id="form_2"><input type="hidden" name="act" value="843" /><a href="" title="Iniciar sesi&oacute;n" class="WHITE_HEAD" onclick="javascript:document.getElementById('form_2').submit();return false;"><img src="https://swad.ugr.es/swad/icon/theme/white/login16x16.gif" alt="Iniciar sesi&oacute;n" class="ICON16x16" /> Iniciar sesi&oacute;n</a></form></td></tr><tr style="height:64px; background-image:url('https://swad.ugr.es/swad/icon/theme/white/head_row2_1x64.gif'); background-repeat:repeat-x;"><td style="width:128px; height:64px; text-align:center; vertical-align:top;"><div id="hm" style="padding-top:8px;" class="WHITE_CUR_TIME">29 abr, 23:06</div></td><td style="height:64px; text-align:center; vertical-align:top;"><div style="text-align:center; padding-top:4px;"><form method="post" action="https://swad.ugr.es/es" id="form_3"><input type="hidden" name="act" value="2" /><input type="hidden" name="NxtTab" value="1" /><a href="" title="Plataforma" class="WHITE_DEGREE" onclick="javascript:document.getElementById('form_3').submit();return false;">Plataforma</a></form><span class="WHITE_DEGREE"> / ... </span><form method="post" action="https://swad.ugr.es/es" id="form_4"><input type="hidden" name="act" value="627" /><select name="CrsCod" style="width:140px;margin:1px;" onchange="javascript:document.getElementById('form_4').submit();"><option value="-1" disabled="disabled" selected="selected">Ninguna asignatura</option></select></form></div></td><td style="width:128px; height:64px; text-align:center; vertical-align:top;"></td></tr><tr><td colspan="2" style="height:56px; text-align:center; vertical-align:top; background-image:url('https://swad.ugr.es/swad/icon/theme/white/head_base_background_1x56.gif'); background-repeat:repeat-x;"><div id="tabs_container"><ul style="list-style-type:none; padding:0; margin:0;"><li class="TAB_OFF" style="background-color:#D4D4D4;"><div class="ICON_HIGHLIGHT"><form method="post" action="https://swad.ugr.es/es" id="form_5"><input type="hidden" name="act" value="2" /><input type="hidden" name="NxtTab" value="1" /><a href="" title="Plataforma" class="WHITE_TAB_OFF" onclick="javascript:document.getElementById('form_5').submit();return false;"><img src="https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/sys64x64.gif" alt="Plataforma" title="Plataforma" class="ICON32x32" style="margin:4px;" /><div>PLATAFORMA</div></a></form></div></li><li class="TAB_OFF" style="background-color:#D4D4D4;"><div class="ICON_HIDDEN"><img src="https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/ass64x64.gif" alt="Evaluaci&oacute;n" title="Evaluaci&oacute;n" class="ICON32x32" style="margin:4px;" /><div class="WHITE_TAB_OFF">EVALUACI&Oacute;N</div></div></li><li class="TAB_OFF" style="background-color:#D4D4D4;"><div class="ICON_HIGHLIGHT"><form method="post" action="https://swad.ugr.es/es" id="form_6"><input type="hidden" name="act" value="2" /><input type="hidden" name="NxtTab" value="8" /><a href="" title="Usuarios" class="WHITE_TAB_OFF" onclick="javascript:document.getElementById('form_6').submit();return false;"><img src="https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/usr64x64.gif" alt="Usuarios" title="Usuarios" class="ICON32x32" style="margin:4px;" /><div>USUARIOS</div></a></form></div></li><li class="TAB_OFF" style="background-color:#D4D4D4;"><div class="ICON_HIDDEN"><img src="https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/msg64x64.gif" alt="Mensajes" title="Mensajes" class="ICON32x32" style="margin:4px;" /><div class="WHITE_TAB_OFF">MENSAJES</div></div></li><li class="TAB_OFF" style="background-color:#D4D4D4;"><div class="ICON_HIGHLIGHT"><form method="post" action="https://swad.ugr.es/es" id="form_7"><input type="hidden" name="act" value="2" /><input type="hidden" name="NxtTab" value="10" /><a href="" title="Estad&iacute;sticas" class="WHITE_TAB_OFF" onclick="javascript:document.getElementById('form_7').submit();return false;"><img src="https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/sta64x64.gif" alt="Estad&iacute;sticas" title="Estad&iacute;sticas" class="ICON32x32" style="margin:4px;" /><div>ESTAD&Iacute;STICAS</div></a></form></div></li><li class="TAB_ON" style="background-color:#F7F6F5;"><div><form method="post" action="https://swad.ugr.es/es" id="form_8"><input type="hidden" name="act" value="2" /><input type="hidden" name="NxtTab" value="11" /><a href="" title="Perfil" class="WHITE_TAB_ON" onclick="javascript:document.getElementById('form_8').submit();return false;"><img src="https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/prf64x64.gif" alt="Perfil" title="Perfil" class="ICON32x32" style="margin:4px;" /><div>PERFIL</div></a></form></div></li></ul></div></td><td rowspan="2" style="width:128px; text-align:center; vertical-align:top;"><table style="width:100%;"><tr><td style="text-align:right; vertical-align:top; background-image:url('https://swad.ugr.es/swad/icon/theme/white/head_base_background_1x56.gif'); background-repeat:repeat-x;"><table style="width:100%; padding-top:56px; border-spacing:4px;"><tr><td style="width:120px; vertical-align:middle;"><form method="post" action="https://swad.ugr.es/es" id="form_9" target="_blank"><input type="hidden" name="act" value="1145" /><input type="hidden" name="BanCod" value="33" /><input type="hidden" name="URL" value="http://cevug.ugr.es/jornada-propiedad-intelectual/" /><a href="javascript:document.getElementById('form_9').submit();" title="Jornada &#34;La Universidad Pública ante la Ley de Propiedad Intelectual&#34;, 30 de abril de 2015"><img src="https://swad.ugr.es/swad/banner/jornada-propiedad-intelectual120x40.png" alt="Jornada Propiedad Intelectual" style="width:120px; height:40px;" /></a></form></td></tr><tr><td style="text-align:center;"><form method="post" action="https://swad.ugr.es/es" id="form_10"><input type="hidden" name="act" value="995" /><a href="" title="Usuarios conectados" class="WHITE_CONNECTED" onclick="javascript:document.getElementById('form_10').submit();return false;">Conectados</a></form><div id="globalconnected"><div class="CONNECTED" style="width:110px; margin-left:auto; margin-right:auto; "><table style="width:110px;"><tr><td style="width:110px; text-align:center; vertical-align:top;">1526 sesiones</td></tr><tr><td style="width:110px; text-align:center; vertical-align:top;">1334 usuarios:</td></tr><tr><td style="width:110px; text-align:center; vertical-align:top;">1307 estudiantes</td></tr><tr><td style="width:110px; text-align:center; vertical-align:top;">24 profesores</td></tr><tr><td style="width:110px; text-align:center; vertical-align:top;">3 invitados</td></tr></table></div></div><div id="courseconnected"></div></td></tr><tr><td style="text-align:center;"><a href="https://play.google.com/store/apps/details?id=es.ugr.swad.swadroid" target="_blank" title="Si tiene un dispositivo Android, pruebe SWADroid"><img src="https://swad.ugr.es/swad/icon/SWADroid120x200.png" alt="SWADroid" style="width:120px; height:200px;" /></a></td></tr><tr><td class="INS_LNK" style="width:120px; text-align:center;"><div id="institutional_links"><table style="width:110px;"><tr><td style="width:110px; text-align:left;"><a href="http://abierta.ugr.es/" title="Abierta UGR (MOOC)" class="INS_LNK" target="_blank">Abierta UGR</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="https://oficinavirtual.ugr.es/ai/" title="Acceso identificado a la UGR" class="INS_LNK" target="_blank">Acceso identificado</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://www.ugr.es/~biblio/" title="Biblioteca universitaria" class="INS_LNK" target="_blank">Biblioteca</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://www.ugr.es/ugr/index.php?page=correo" title="Correo electrónico institucional" class="INS_LNK" target="_blank">Correo</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://detic.ugr.es/" title="Delegación del Rector para las TIC" class="INS_LNK" target="_blank">DeTIC</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://www.ugr.es/ugr/index.php?page=perfiles/estudiantes" title="Estudiantes" class="INS_LNK" target="_blank">Estudiantes</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://vicengp.ugr.es/" title="Vicerrectorado de Enseñanzas de Grado y Posgrado" class="INS_LNK" target="_blank">Grado y posgrado</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://csirc.ugr.es/" title="Servicio de informática C.S.I.R.C." class="INS_LNK" target="_blank">Informática y redes</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://ocw.ugr.es/" title="OpenCourseWare en la UGR" class="INS_LNK" target="_blank">OCW</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://internacional.ugr.es/" title="Vicerrectorado de Relaciones Internacionales" class="INS_LNK" target="_blank">Rel. internacionales</a></td></tr><tr><td style="width:110px; text-align:left;"><a href="http://www.ugr.es/" title="Universidad de Granada" class="INS_LNK" target="_blank">UGR</a></td></tr></table></div></td></tr></table></td></tr></table></td></tr><tr><td colspan="2" style="text-align:center; vertical-align:top;"><div id="CENTRAL_ZONE" style="background-color:#F7F6F5;"><table style="width:100%; vertical-align:top;"><tr><td style="width:10px; text-align:right; vertical-align:top;"><form method="post" action="https://swad.ugr.es/es" id="form_11"><input type="hidden" name="act" value="670" /><input type="image" src="https://swad.ugr.es/swad/icon/central_right_8x800.gif" alt="Mostrar columna izquierda" title="Mostrar columna izquierda" style="width:8px;height:800px;" /></form></td><td style="width:140px; text-align:left; vertical-align:top;"><ul id="vertical_menu_container"><li><form method="post" action="https://swad.ugr.es/es" id="form_12"><input type="hidden" name="act" value="843" /><a href="" title="Rol en esta sesi&oacute;n" class="WHITE_MENU_ON" onclick="javascript:document.getElementById('form_12').submit();return false;"><div class="MENU_OPTION" style="background-image:url('https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/keyuser64x64.gif'); background-size:32px 32px;""><div class="MENU_TEXT"><span class="WHITE_MENU_ON">Sesi&oacute;n</span></div></div></a></form></li><li><hr class="WHITE_SEPARA" /></li><li><div class="ICON_HIGHLIGHT"><form method="post" action="https://swad.ugr.es/es" id="form_13"><input type="hidden" name="act" value="36" /><a href="" title="Creaci&oacute;n o edici&oacute;n de mi cuenta de usuario/a" class="WHITE_MENU_OFF" onclick="javascript:document.getElementById('form_13').submit();return false;"><div class="MENU_OPTION" style="background-image:url('https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/arroba64x64.gif'); background-size:32px 32px;""><div class="MENU_TEXT"><span class="WHITE_MENU_OFF">Cuenta</span></div></div></a></form></div></li><li><div class="ICON_HIGHLIGHT"><form method="post" action="https://swad.ugr.es/es" id="form_14"><input type="hidden" name="act" value="673" /><a href="" title="Mis preferencias (idioma, colores, notificaciones...)" class="WHITE_MENU_OFF" onclick="javascript:document.getElementById('form_14').submit();return false;"><div class="MENU_OPTION" style="background-image:url('https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/heart64x64.gif'); background-size:32px 32px;""><div class="MENU_TEXT"><span class="WHITE_MENU_OFF">Preferencias</span></div></div></a></form></div></li></ul></td><td style="padding:0 10px 10px 10px; text-align:left; vertical-align:top;"><div id="action_title" style="background-image:url('https://swad.ugr.es/swad/icon/iconset/nuvola/action64x64/keyuser64x64.gif');"><div class="WHITE_TITLE_ACTION">Perfil &gt; Sesi&oacute;n</div><div class="WHITE_SUBTITLE_ACTION">Rol en esta sesi&oacute;n</div></div><div class="CONTEXT_MENU"><form method="post" action="https://swad.ugr.es/es" id="form_15"><input type="hidden" name="act" value="36" /><a href="" title="&iquest;No tiene cuenta en SWAD? Reg&iacute;strese" class="WHITE_FORM_BOLD" onclick="javascript:document.getElementById('form_15').submit();return false;"><div class="CONTEXT_OPT ICON_HIGHLIGHT"><img src="https://swad.ugr.es/swad/icon/arroba16x16.gif" alt="&iquest;No tiene cuenta en SWAD? Reg&iacute;strese" class="ICON16x16" />&nbsp;&iquest;No tiene cuenta en SWAD? Reg&iacute;strese</div></a></form><a href="https://oficinavirtual.ugr.es/" class="WHITE_FORM_BOLD"><div class="CONTEXT_OPT ICON_HIGHLIGHT"><img src="https://swad.ugr.es/swad/icon/login16x16.gif" alt="Entrar desde PRADO" class="ICON16x16" />&nbsp;Entrar desde PRADO</div></a><form method="post" action="https://swad.ugr.es/es" id="form_16"><input type="hidden" name="act" value="665" /><input type="hidden" name="UsrId" value="" /><a href="" title="He olvidado mi contrase&ntilde;a" class="WHITE_FORM_BOLD" onclick="javascript:document.getElementById('form_16').submit();return false;"><div class="CONTEXT_OPT ICON_HIGHLIGHT"><img src="https://swad.ugr.es/swad/icon/key16x16.gif" alt="He olvidado mi contrase&ntilde;a" class="ICON16x16" />&nbsp;He olvidado mi contrase&ntilde;a</div></a></form></div><div style="text-align:center;"><form method="post" action="https://swad.ugr.es/es" id="form_17"><input type="hidden" name="act" value="6" /><div style="text-align:center;"><div class="FRAME10"><div class="TIT_TBL_10" style="text-align:center;">Iniciar sesi&oacute;n</div><table class="TABLE10 CELLS_PAD_2"><tr><td class="BM"><img src="https://swad.ugr.es/swad/icon/user16x16.gif" title="Usuario" class="ICON16x16" /></td><td style="text-align:left; vertical-align:middle;"><input type="text" id="UsrId" name="UsrId" size="25" maxlength="127" placeholder="@apodo, correo o ID (DNI/c&eacute;dula)" value="" /></td></tr><tr><td class="BM"><img src="https://swad.ugr.es/swad/icon/key16x16.gif" title="Contrase&ntilde;a" class="ICON16x16" /></td><td style="text-align:left; vertical-align:middle;"><input type="password" name="UsrPwd" size="25" maxlength="256" placeholder="contrase&ntilde;a" /></td></tr><tr><td colspan="2" style="text-align:center;"><button type="submit" class="BT_SUBMIT BT_CONFIRM">Iniciar sesi&oacute;n</button></td></tr></table></div></div></form></div></td><td style="width:10px; text-align:left; vertical-align:top;"><form method="post" action="https://swad.ugr.es/es" id="form_18"><input type="hidden" name="act" value="669" /><input type="image" src="https://swad.ugr.es/swad/icon/central_right_8x800.gif" alt="Ocultar columna derecha" title="Ocultar columna derecha" style="width:8px;height:800px;" /></form></td></tr></table></div></td></tr></table>
+<div style="margin:0 10%">
+	<div class="FOOT_LIST_CONTAINER" style="width:14%;">
+		<h2 title="Informaci&oacute;n" class="FOOT_LIST_TITLE">Informaci&oacute;n</h2>
+		<ul class="FOOT_LIST">
+			<li><a href="https://openswad.org/info/" target="_blank" class="FOOT_LINK" title="&iquest;Qu&eacute; es SWAD?">
+			&iquest;Qu&eacute; es SWAD?</a></li>
+			<li><a href="http://openswad.wordpress.com/" target="_blank" class="FOOT_LINK" title="Blog">
+			Blog</a></li>
+			<li><a href="https://openswad.org/paper/" target="_blank" class="FOOT_LINK" title="Publicaciones">
+			Publicaciones</a></li>
+			<li><a href="https://openswad.org/press/" target="_blank" class="FOOT_LINK" title="Prensa">
+			Prensa</a></li>
+			<li><a href="https://openswad.org/logo/" target="_blank" class="FOOT_LINK" title="Logos">
+			Logos</a></li>
+			<li><a href="http://www.cafepress.com/swad_ugr_es/" target="_blank" class="FOOT_LINK" title="Tienda">
+			Tienda</a></li>
+		</ul>
+	</div>
+	<div class="FOOT_LIST_CONTAINER" style="width:14%;">
+		<h2 title="Documentaci&oacute;n" class="FOOT_LIST_TITLE">Documentaci&oacute;n</h2>
+		<ul class="FOOT_LIST">
+			<li><a href="https://openswad.org/SWAD-manual-ES.pdf" target="_blank" class="FOOT_LINK" title="Manual (ES)">
+			Manual b&aacute;sico (ES)</a></li>
+			<li><a href="https://openswad.org/SWAD-manual-EN.pdf" target="_blank" class="FOOT_LINK" title="Manual (EN)">
+			Basic manual (EN)</a></li>
+			<li><a href="https://openswad.org/presentation/" target="_blank" class="FOOT_LINK" title="Presentaciones">
+			Presentaciones</a></li>
+			<li><a href="https://openswad.org/video/" target="_blank" class="FOOT_LINK" title="Videotutoriales">
+			Videotutoriales</a></li>
+			<li><a href="https://openswad.org/tool/" target="_blank" class="FOOT_LINK" title="Herramientas">
+			Herramientas</a></li>
+		</ul>
+	</div>
+	<div class="FOOT_LIST_CONTAINER" style="width:14%;">
+		<h2 title="SWAD en la UGR" class="FOOT_LIST_TITLE">SWAD UGR</h2>
+		<ul class="FOOT_LIST">
+			<li><a href="http://twitter.com/swad_ugr" target="_blank" class="FOOT_LINK" title="Twitter de SWAD en la UGR">
+			Twitter</a></li>
+			<li><a href="http://swad.ugr.es/stat/" target="_blank" class="FOOT_LINK" title="Estad&iacute;sticas de uso en la UGR">
+			Estad&iacute;sticas</a></li>
+			<li><a href="http://swad.ugr.es/server/" target="_blank" class="FOOT_LINK" title="Servidor de SWAD en la UGR">
+			Servidor</a></li>
+			<li><a href="http://swad.ugr.es/encuentro/" target="_blank" class="FOOT_LINK" title="I Encuentro de Usuarios de SWAD">
+			Encuentro</a></li>
+		</ul>
+	</div>
+	<div class="FOOT_LIST_CONTAINER" style="width:14%;">
+		<h2 title="Information" class="FOOT_LIST_TITLE">Social</h2>
+		<ul class="FOOT_LIST">
+			<li><a href="http://twitter.com/openswad" target="_blank" class="FOOT_LINK" title="Twitter">
+			Twitter</a></li>
+			<li><a href="https://www.facebook.com/OpenSWAD/" target="_blank" class="FOOT_LINK" title="facebook">
+			Facebook</a></li>
+			<li><a href="https://es.wikipedia.org/wiki/SWAD" target="_blank" class="FOOT_LINK" title="Wikipedia">
+			Wikipedia</a></li>
+			<li><a href="https://plus.google.com/u/0/109453568780563947088/about/p/pub" target="_blank" class="FOOT_LINK" title="Google+">
+			Google+</a></li>
+			<li><a href="http://www.youtube.com/channel/UCDk02lUBCoqp_v2A25t6orQ/about" target="_blank" class="FOOT_LINK" title="YouTube">
+			YouTube</a></li>
+			<li><a href="http://alternativeto.net/software/swad/" target="_blank" class="FOOT_LINK" title="alternativeTo">
+			alternativeTo</a></li>
+			<li><a href="http://www.startupranking.com/openswad" target="_blank" class="FOOT_LINK" title="startupRANKING">
+			startupRANKING</a></li>
+			<li><a href="https://github.com/acanas/swad-core" target="_blank" class="FOOT_LINK" title="GitHub">
+			GitHub</a></li>
+			<li><a href="https://www.openhub.net/p/swad-core" target="_blank" class="FOOT_LINK" title="Open HUB">
+			Open HUB</a></li>
+		</ul>
+	</div>
+	<div class="FOOT_LIST_CONTAINER" style="width:14%;">
+		<h2 title="Software libre" class="FOOT_LIST_TITLE">Software libre</h2>
+		<ul class="FOOT_LIST">
+			<li><a href="https://openswad.org/source/" target="_blank" class="FOOT_LINK" title="Source code">
+			Source code</a></li>
+			<li><a href="https://openswad.org/download/" target="_blank" class="FOOT_LINK" title="Download">
+			Download</a></li>
+			<li><a href="https://openswad.org/install/" target="_blank" class="FOOT_LINK" title="Install">
+			Install</a></li>
+			<li><a href="https://openswad.org/database/" target="_blank" class="FOOT_LINK" title="Database">
+			Database</a></li>
+			<li><a href="https://openswad.org/translation/" target="_blank" class="FOOT_LINK" title="Translation">
+			Translation</a></li>
+			<li><a href="https://openswad.org/ws/" target="_blank" class="FOOT_LINK" title="Plugins">
+			Plugins</a></li>
+			<li><a href="https://openswad.org/changelog/" target="_blank" class="FOOT_LINK" title="Changelog">
+			Changelog</a></li>
+			<li><a href="https://openswad.org/roadmap/" target="_blank" class="FOOT_LINK" title="Roadmap">
+			Roadmap</a></li>
+			<li><a href="https://openswad.org/author/" target="_blank" class="FOOT_LINK" title="Authors">
+			Authors</a></li>
+			<li><a href="https://openswad.org/pfc/" target="_blank" class="FOOT_LINK" title="Proyectos fin de carrera">
+			Proyectos fin de carrera</a></li>
+		</ul>
+	</div>
+	<div class="FOOT_LIST_CONTAINER" style="width:14%;">
+		<h2 title="Instalaciones" class="FOOT_LIST_TITLE">Instalaciones</h2>
+		<ul class="FOOT_LIST">
+			<li><a href="https://openswad.org/" target="_blank" class="FOOT_LINK" title="OpenSWAD.org">
+			OpenSWAD.org</a></li>
+			<li><a href="https://swad.ugr.es/" target="_blank" class="FOOT_LINK" title="UGR (Espa&ntilde;a)">
+			UGR (Espa&ntilde;a)</a></li>
+			<li><a href="http://www.cevuna.una.py/swad/" target="_blank" class="FOOT_LINK" title="UNA (Paraguay)">
+			UNA (Paraguay)</a></li>
+		</ul>
+	</div>
+	<div class="FOOT_LIST_CONTAINER" style="width:16%;">
+		<h2 title="M&oacute;vil" class="FOOT_LIST_TITLE">M&oacute;vil</h2>
+		<ul class="FOOT_LIST">
+			<li>
+			<a href="https://openswad.org/swadroid/" target="_blank" class="FOOT_LINK" title="SWADroid: SWAD App for Android">
+			SWADroid</a></li>
+			<a href="https://play.google.com/store/apps/details?id=es.ugr.swad.swadroid" target="_blank" class="FOOT_LINK" title="SWADroid: SWAD App for Android">
+			SWADroid Google Play</a></li>
+			<li><a href="http://swadroid.wordpress.com/" class="FOOT_LINK" target="_blank" title="SWADroid Blog">
+			SWADroid Blog</a></li>
+			<li><a href="http://twitter.com/swadroid" class="FOOT_LINK" target="_blank" title="@SWADroid">
+			SWADroid Twitter</a></li>
+			<li><a href="https://plus.google.com/115615684349730524355/posts" class="FOOT_LINK" target="_blank" title="SWADroid Blog">
+			SWADroid Google+</a></li>
+			<li><a href="https://github.com/Amab/SWADroid" class="FOOT_LINK" target="_blank" title="SWADroid GitHub">
+			SWADroid GitHub</a></li>
+			<li><a href="https://www.openhub.net/p/swadroid" class="FOOT_LINK" target="_blank" title="SWADroid GitHub">
+			SWADroid Open HUB</a></li>
+			<li><a href="http://twitter.com/iswad_ugr" class="FOOT_LINK" target="_blank" title="@iswad_ugr">
+			iSWAD Twitter</a></li>
+		</ul>
+	</div>
+</div>
+	
+<br style="clear:both;" />
+<div class="FOOT" style="text-align:center; padding-bottom:10px;"><a href="http://cevug.ugr.es/" class="FOOT" target="_blank"><img src="https://swad.ugr.es/swad/icon/cevug100x32.png" alt="Centro de Ense&ntilde;anzas Virtuales de la Universidad de Granada" style="width:100px; height:32px;" /><div>Centro de Ense&ntilde;anzas Virtuales de la Universidad de Granada</div></a><div><a href="http://cevug.ugr.es/contactar/contactar_multilang_simple_.php?amb=tic" class="FOOT" target="_blank">Consultas y problemas:</a> <a href="mailto:sctecnico@ugr.es" class="FOOT" target="_blank">sctecnico@ugr.es</a></div><div><a href="http://openswad.org/info/" class="FOOT" target="_blank">Acerca de SWAD 14.113.4 (2015/04/25)</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P&aacute;gina generada en 18 ms y enviada en 96 &micro;s</div></div></body>
+</html>

@@ -1,0 +1,281 @@
+/*! \mainpage DEQUE 
+ *
+\version v0
+\author  Juan F. Huete
+
+\tableofcontents
+
+\section intro_sec Introducción
+
+ En esta práctica nuestro objetivo es doble: por un lado implementar un nuevo tipo de dato, el DEQUE que representa una estructura de datos lineal, mientras que por otro hacer uso de dos de los tipos lineales que hemos visto, la lista (list) y el vector. Siguiendo este segundo objetivo, la representación interna del deque estará basada en estos tipos (aunque esto hace que algunas operaciones no sean del todo eficientes). 
+
+\section dq ¿Qué es un deque?
+
+Un deque (Double-Ended-QUEue) un contenedor secuencial que permite el acceso  aleatorio a los elementos (mediante valores enteros- índice), inserción y borrado eficiente (en tiempo constante, O(1)) si se realiza al final y comienzo del deque. Sin embargo, la inserción y el borrado son de orden lineal si se realizan en posiciones intermedias del deque. 
+Es posible iterar sobre todos los elementos, desde el primero al último de la secuencia.
+
+ 
+
+Ambos, vectores y deques, proporcionan una interfaz muy similar y pueden utilizarse para resolver los mismos problemas, pero internamente son muy diferentes.
+
+ Mientras que los vectores almacenan la información  de forma contigua,  teniéndose  que re-dimensionar  cuando crece su tamaño, los elementos en un deque se almacenan  en diferentes bloques de memoria, manteniendo el deque la información necesaria para permitir el acceso directo a cualquiera de sus elementos en orden constante. Normalmente, estos contenedores suelen ser implementados bajo la forma de matrices bidimensionales (como hemos dicho, nosotros utilizaremos otra alternativa). Sin embargo, están dotados de una interfaz que permite  considerar los elementos secuencialmente. 
+
+Por tanto, el deque tiene una representación interna mas compleja que el vector, lo que le permite crecer de forma más eficiente bajo ciertas circunstancias, particularmente cuando se consideran secuencias muy grandes de elementos, donde para el vector el realojar todos los elementos tiene un elevado coste.
+
+El número de elementos en el deque puede variar dinámicamente; la gestión de la memoria es automática. 
+
+\section doc Generar la Documentación.
+
+Al igual que en la práctica anterior la documentación se entrega mediante un fichero pdf, así como mediante un fichero tgz que contiene todos los fuentes junto a los archivos necesarios para generar la documentación (en latex y html). Para generar los ficheros html con la documentación de la misma es suficiente con ejecutar desde la línea de comando
+
+\code
+doxygen dox_deque
+\endcode
+
+Como resultado nos genera dos directorios, uno con la documentación en html y el otro con la documentación en latex. Para generar la documentación en pdf podemos ejecutar
+
+\code 
+cd latex
+make
+\endcode
+
+Al hacer make se ejecuta una llamada al programa latex (si lo tenemos instalado) que como salida nos genera el fichero refman.pdf 
+
+Se entrega el fichero de especificación del deque.
+
+\li deque.h  Se os pide implementar los distintos métodos así como el código necesario para demostrar el correcto funcionamiento del mismo.
+
+
+
+Pasamos a detallar cada una de las partes de la práctica.
+
+\section rep Representación del deque
+
+Como se ha comentado, a la hora de almacenar los datos en un deque estos se distribuyen en bloques de memoria de un tamaño fijo. En nuestro caso, consideraremos que cada bloque podrá almacenar hasta un máximo de TBQ elementos, por ejemplo 10 (esta constante estará definida en la parte privada del deque). Obviamente, cuando un  deque tiene más de TBQ elementos, necesitará ocupar más de un bloque. 
+
+Así, por ejemplo, si un deque tuviese que almacenar 26 caracteres, de la A a la Z en este orden, los elementos se tendrán que distribuidos en al menos 3 bloques (posiblemente 4). Obviamente, el usuario (consumidor del tipo) ve los elementos como si realmente estuviesen almacenados de forma consecutiva, esto es, si tenemos un deque<char> dq, dq[0] tendrá la A, dq[1] la B, ..., y dq[25] contendrá la Z. En cualquier caso, internamente los elementos se distrubuyen entre los bloques del deque, en el siguiente ejemplo mostramos tres posibles alternativas.
+
+\code 
+ALT1
+bq 1:  A B C D E F G H I J
+bq 2:  K L M N O P Q R S T
+bq 3:  U V W X Y Z # # # #
+
+ALT2
+bq 1:  # # # A B C D E F G
+bq 2:  H I J K L M N O P Q
+bq 3:  R S T  U V W X Y Z #
+
+ALT3
+bq 1:  # # # # # # # # A B
+bq 2:  C D E F G H I J  K L
+bq 3:  M N O P Q R S T U V
+bq 4:  W X Y Z  # # # # # #
+\endcode
+
+\subsection ins Inserción al Final
+
+La principal ventaja que tiene esta estructura es que permite insertar elementos de forma eficiente por el inicio y el fin. Así, por ejemplo, si quisieramos insertar los números del 0 al 4 (en este orden) al final del deque ocurren dos situaciones: para la alternativas ALT1 y ALT2 será necesario el solicitar al sistema operativo un nuevo bloque en el que se podrán insertar los elementos. Sin embargo, para la alternativa ALT3 no será necesario hacer esta petición, quedando como se ilustra . En  cualquier caso, la inserción al final implica situar el elemento al final del último bloque, salvo en caso en que este la última posición del bloque estuviese ocupada, donde sería necesario realizar la petición de un nuevo  bloque.
+
+
+\code
+ALT1
+bq 1:  A B C D E F G H I J
+bq 2:  K L M N O P Q R S T
+bq 3:  U V W X Y Z 0 1 2 3
+bq4:   4 # # # # # # # # #
+
+ALT2
+bq 1:  # # # A B C D E F G
+bq 2:  H I J K L M N O P Q
+bq 3:  R S T  U V W X Y Z 0
+bq4:   1 2 3 4 # # # # # #
+
+ALT3
+bq 1:  # # # # # # # # A B
+bq 2:  C D E F G H I J  K L
+bq 3:  M N O P Q R S T U V
+bq 4:  W X Y Z 0 1 2 3 4 #
+\endcode 
+\subsection insini Inserción al Inicio
+
+De igual forma, si nuestro objetivo es insertar el número 5 al principio, para la alternativas ALT2 y ALT3 no hay problema, lo podemos ubicar justo delante de la A. Sin embargo, para la alternativa ALT1, el bloque bq1 está lleno, y por tanto debemos de solicitar un nuevo bloque al sistema operativo, que se ubicará antes del bloque primero.  En las figuras mostramos cómo quedarían la estructuras al insertar  los números del 5 al 9 al principio del deque (en este orden). En este caso, la inserción al inicio implica situar el elemento en la primera posición libre del primer bloque, empezando por el final,  salvo en caso en que la primera posición del bloque ya estuviese ocupada, donde sería necesario realizar la petición de un nuevo  bloque.
+
+\code
+ALT1
+bq0:  # # # # # 9 8 7 6 5
+bq1:  A B C D E F G H I J
+bq2:  K L M N O P Q R S T
+bq3:  U V W X Y Z 0 1 2 3
+bq4:  4 # # # # # # # # #
+
+ALT2
+bq0:  # # # # # # # #  9 8
+bq1:  7 6 5 A B C D E F G
+bq2:  H I J K L M N O P Q
+bq3:  R S T  U V W X Y Z 0
+bq4:  1 2 3 4 # # # # # #
+
+ALT3
+bq 1:  # # # 9 8 7 6 5 A B
+bq 2:  C D E F G H I J  K L
+bq 3:  M N O P Q R S T U V
+bq 4:  W X Y Z 0 1 2 3 4 #
+\endcode
+\subsection lis Gestión de los bloques
+
+Para poder trabajar con todos los bloques del deque necesitaremos de algun mecanismo para su  gestión. En concreto en la práctica utilizaremos una lista  (señalar que no es lo más eficiente, sin embargo nos permitirá trabajar sobre nuestro segundo objetivo, utilizar el TDA list), llamemos L a dicha lista. Además de la lista de bloques, necesitaremos de tres atributos más, uno que nos indique cual es el elemento al principio del deque (ini) , el primer elemento válido en el bloque 0, el segundo  que nos indicase el final del deque (fin), el siguiente al último, que sería una posición del  último bloque. El último nos indicará el número de elementos del deque. Por tanto, la estructura final es
+
+\code
+class deque {
+ public:
+   ....
+ private:
+  #define TAM_BLQ 10
+  list<vector<T> > L_dq;
+  vector<T>::size_type inicio;  // Inicio de los datos
+  vector<T>::size_type final;   // fin de los datos
+  size_type tama;
+};
+\endcode
+Así, nuestros deque ejemplos quedarían como 
+\code
+
+ALT1
+ini = 5
+fin = 1
+tama = 36
+L= [
+  bq0:   # # # # # 9 8 7 6 5
+  bq 1:  A B C D E F G H I J
+  bq 2:  K L M N O P Q R S T
+  bq 3:  U V W X Y Z 0 1 2 3
+  bq4:   4 # # # # # # # # #
+]
+
+ALT2
+ini = 8
+fin = 4
+tama = 36
+L= [
+   bq0:   # # # # # # # #  9 8
+   bq 1:  7 6 5 A B C D E F G
+   bq 2:  H I J K L M N O P Q
+   bq 3:  R S T  U V W X Y Z 0
+   bq4:   1 2 3 4 # # # # # #
+]
+
+ALT3
+ini = 3
+fin = 9
+tama = 36
+L= [
+   bq 1:  # # # 9 8 7 6 5 A B
+   bq 2:  C D E F G H I J  K L
+   bq 3:  M N O P Q R S T U V
+   bq 4:  W X Y Z 0 1 2 3 4 #
+]
+\endcode
+\subsection acceso Acceso Aleatorio a los Elementos 
+
+Una vez que tenemos la estructura definida, nos preguntamos cómo podemos implementar el acceso aleatorio, esto es, como identificar la posición del elemento i-ésimo del deque. Lo ilustraremos con un ejemplo. Supongamos que tenemos el deque del ejemplo, deque<char> dq, esto es, dq[0] tiene el  9,  dq[1] tiene el  8, ....., dq[ dq.size()-1] = 4, y queremos acceder al elemento que ocupa la posición 26 del mismo, por ejemplo haciendo 
+\code
+cout << dq[26];
+dq[26]=x;
+\endcode
+En este caso, lo ilustraremos considerando que los elementos se encuentran ubicados según nos indica la alternativa ALT3.
+
+El elemento ini se encuentra en la posición 3 del primer bloque, esto indica que hay 7 elementos (TBQ-ini) en el bloque de inicio (los elementos desde dq[0] a dq[6]). Si consideramos los elementos del segundo bloque habríamos avanzado hasta el decimoséptimo elemento (dq[16]). Por tanto, el elemento que buscamos estará en el tercer bloque, en la posición bq3[9].
+
+\code
+ALT3
+ini = 3
+fin = 9
+tama = 36
+L= [
+   bq 1:  # # # 9 8 7 6 5 A B
+   bq 2:  C D E F G H I J  K L
+   bq 3:  M N O P Q R S T U V
+   bq 4:  W X Y Z 0 1 2 3 4 #
+]
+\endcode
+
+Tras ver el ejemplo, el algoritmo para encontrar la posición de un elemento implica determinar (si procede) el desplazamiento sobre el primer bloque, para después computar cuantos bloques tendremos que avanzar, y finalmente calcular el desplazamiento sobre el último bloque.
+
+
+\subsection it Iteradores sobre el deque
+
+Para poder iterar sobre el deque será necesario tener en cuenta dos factores distintos, el  primero nos permite  saber en que bloque estamos, mientras que el segundo nos permitirá determinar el desplazamiento dentro de cada bloque.
+
+\code
+class deque{
+....
+  class iterator {
+    ....
+    iterator & operator++();
+    ......
+    private:
+      list<vector<T> >::iterator it_l;
+      vector<T>::iterator it_v;
+   };
+};
+\endcode
+
+
+En este caso, el begin() del deque, it_l apuntará al primer bloque e it_v apuntará a la primera posición que contiene un elemento en dicho bloque. De forma análoga, end() del deque hace que il_l apunte al ultimo bloque e it_v apuntará a la posición siguiente al último elemento en dicho bloque.
+
+Avanzar el iterador implica avanzar a la siguiente posición del deque, que será el siguiente elemento del bloque si no se ha llegado al final del mismo, y en este caso debemos desplazarnos al primer elemento del siguiente bloque.
+
+\subsection insercionM Inserción de elementos en posiciones intermedias
+
+El proceso es similar, lo que ocurre es que BAJO NINGUNA CIRCUNSTANCIA un bloque debe de tener más de TBQ elementos. Por tanto será necesario desplazar los elementos (hacia adelante o hacia atrás) por el deque. Así, imaginemos que queremos insertar una x justo antes de P . Si consideramos el deque siguiente, deberíamos considerar un iterador a esta  posición, esto es, debería apuntar  al  cuarto elemento del bq 3.
+
+\code
+ini = 3
+fin = 9
+tama = 36
+L= [
+   bq 1:  # # # 9 8 7 6 5 A B
+   bq 2:  C D E F G H I J  K L
+   bq 3:  M N O P Q R S T U V
+   bq 4:  W X Y Z 0 1 2 3 4 #
+]
+\endcode
+
+
+En este caso, debemos de desplazar  los elementos del bloque 3 una posición a la derecha, desbordándose el  último de ellos, que habrá de posicionarse como primer elemento del siguiente bloque. Este proceso de desbordamiento, se repite en cadena hacia el final del deque. En caso de que el último bloque estuviese lleno, será necesario el solicitar un nuevo bloque al sistema operativo, donde ubicaríamos el último elemento. Finalmente, se ajustaría la posición fin del deque e incrementaríamos en uno el tamaño. Por tanto, nuestro deque quedaría como se ilustra.
+
+\code
+ini = 3
+fin = 10
+tama = 37
+L= [
+   bq 1:  # # # 9 8 7 6 5 A B
+   bq 2:  C D E F G H I J  K L
+   bq 3:  M N O x P Q R S T U
+   bq 4:  V W X Y Z 0 1 2 3 4
+]
+\endcode
+
+
+\section pido SE PIDE
+
+En concreto se pide implementar todos los métodos asociados al deque junto con sus iteradores.
+Además, se debe hacer un análisis empírico de la eficiencia de la implementación. Para ello podeís utilizar el fichero chronos.cpp que está subido a la plataforma decsai. 
+
+
+\subsection SP2 A ENTREGAR
+
+El alumno debe entregar los siguientes ficheros, con las correciones necesarias para poder trabajar 
+
+\li deque.h Especificación del TDA diccionario.
+\li deque.hxx  segunda versión del diccionario.
+\li prueba.cpp fichero de prueba del diccionario
+\li eficiencia.pdf
+
+Dicha entrega se debe realizar antes de el Lunes 20 de Diciembre, a las 20:00 horas (pm).
+
+*/
+
+
+

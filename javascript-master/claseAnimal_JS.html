@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+
+      <head>
+            <meta charset="ISO-8859-1" />
+            <title>Javascript</title>
+      </head>                    
+      <body>
+          
+          <script type="text/javascript">
+        		                       
+          function Animal (tipo, color){
+              this.tipo = tipo;
+              this.color = color;    
+          }
+                         
+
+          var conejo = new Animal("mamífero", "blanco");    
+          var tigre = new Animal("mamífero", "blanco");          
+
+          //para para definir nuevas propiedades y métodos 
+          Animal.prototype._peso = 0;
+          
+          Animal.prototype.setPeso = function(peso){ 
+              this._peso = peso; 
+          }; 
+          
+          Animal.prototype.mostrarPeso = function(){ 
+              console.log(this._peso);
+              alert("Mostrar peso 1: " + this._peso); 
+          }; 
+
+          conejo.setPeso(15);
+          conejo.mostrarPeso();
+
+
+          
+          alert(conejo.tipo);
+
+          //o para cambiar propiedades y métodos ya creados de un objeto
+          Animal.prototype.mostrarPeso = function(){
+                      
+                      aumento= 2;
+                      this._peso += aumento;
+                      console.log(this._peso);   
+                      alert("Mostrar peso 2: " + this._peso); 
+          }
+          
+          conejo.mostrarPeso();
+
+
+          /* HERENCIA */
+          //*************************************************************************************
+          //*************************************************************************************
+          //*************************************************************************************
+          
+          //Primero se crea el constructor del hijo
+          function Felino(color, raza) {
+                              
+             //Si tenemos que llamar al constructor del padre
+             Animal.call(this,"felino",color);
+             
+             this._raza=raza;
+          }
+
+          //Prototipe de clase hija, instancia de la clase padre
+          Felino.prototype = new Animal;
+
+
+          //Nuevos metodos para la clase hija
+          //*********************************************
+          Felino.prototype.maullar = function () {
+            alert('meowwwww');
+          };
+          
+
+          var gato = new Felino("blanco", "angora");
+        	
+          alert(gato.tipo);
+          
+          gato.mostrarPeso();
+          
+          gato.maullar();	
+          
+          
+          //Añadir getter y setter a prototype:
+          //****************************************
+          Object.defineProperties(Felino.prototype, { 
+      			
+              raza: { 
+      				      
+                      get: function(){ 
+      				          return "RAZA DEL FELINO: " + this._raza; 
+      				        }, 
+      				        
+      				        
+      				        set: function(valor){ 
+      					
+                        this._raza = valor; 
+      					        alert("RAZA CAMBIADA"); 
+      					      } 
+      				      }  
+       	 }); 
+
+            
+          gato.raza = "Persa";
+          
+          alert(gato.raza);
+          
+          	
+        	</script>
+
+      
+      </body>
+</html> 

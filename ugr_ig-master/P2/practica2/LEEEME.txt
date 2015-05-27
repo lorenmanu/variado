@@ -1,0 +1,4 @@
+make
+./practica2 arg 
+#arg = 1 -> torre
+#arg != 1 -> peon

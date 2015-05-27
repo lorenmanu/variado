@@ -1,0 +1,154 @@
+<html>
+<head>
+    <!-- Custom CSS -->
+    <link href="./static/bootstrap/css/freelancer.css" rel="stylesheet">
+    <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./static/bootstrap/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    <div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+</body>
+    <!-- jQuery -->
+    <script src="./static/bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="./static/bootstrap/js/classie.js"></script>
+    <script src="./static/bootstrap/js/cbpAnimatedHeader.js"></script>
+
+    <!-- HighCharts JavaScript-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	
+	<!--GRAFICA1-->
+	<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Tiempos medios de ejecucion de los benchmark'
+            },
+            subtitle: {
+                text: 'Practica 4 SWAP'
+            },
+            xAxis: {
+                categories: ['ab benchmark', 'httperf benchmark'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Tiempo (segundos)',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' segundos'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 40,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Balanceadora con haproxy',
+                data: [14.8583,14.1653]
+            }, {
+                name: 'Balanceadora con nginx',
+                data: [19.6658,16.418]
+            }, {
+                name: 'Maquina 1',
+                data: [9.0182,12.1309]
+            }]
+        });
+    });
+    </script>
+    <!-- GRAFICA 2-->
+    <script>
+    $(function () {
+        $('#container2').highcharts({
+            title: {
+                text: 'Tiempo de cada ejecucion de los benchmark',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Practica 4 SWAP',
+                x: -20
+            },
+            xAxis: {
+                categories: ['Ejecucion 1', 'Ejecucion 2', 'Ejecucion 3', 'Ejecucion 4', 'Ejecucion 5', 'Ejecucion 6',
+                    'Ejecucion 7', 'Ejecucion 8', 'Ejecucion 9', 'Ejecucion 10']
+            },
+            yAxis: {
+                title: {
+                    text: 'Tiempo (segundos)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: 'segundos'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'ab balanceadora haproxy',
+                data: [15.706,16.931,14.173,14.664,13.955,14.271,14.308,14.685,15.521,14.369]
+            }, {
+                name: 'ab balanceadora nginx',
+                data: [18.902,24.960,18.948,18.870,18.308,18.136,17.887,18.925,20.581,21.141]
+            }, {
+                name: 'ab maquina 1',
+                data: [8.796,9.403,9.169,8.271,9.806,8.521,8.381,9.236,9.921,8.678]
+            }, {
+                name: 'httperf balanceadora haproxy',
+                data: [13.280,13.778,13.298,13.295,17.752,14.778,13.366,13.727,14.503,13.876]
+            }, {
+                name: 'httperf balanceadora nginx',
+                data: [14.608,14.928,17.957,16.374,15.450,17.015,17.473,17.808,15.502,17.065]
+            }, {
+                name: 'httperf maquina 1',
+                data: [10.332,11.010,11.641,11.776,12.072,12.147,12.134,13.758,13.389,13.050]
+            }]
+        });
+    });
+    </script>
+</html>

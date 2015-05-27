@@ -1,0 +1,13 @@
+ply
+format ascii 1.0
+element vertex 5
+property float32 x
+property float32 y
+property float32 z
+end_header
+0.0 7.5 0.0
+1.0 7.5 0.0 
+1.0 8.5 0.0
+2.7 8.5 0.0
+2.7 7.2 0.0
+

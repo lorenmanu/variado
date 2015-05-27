@@ -1,0 +1,33 @@
+Práctica 4, Jesús Ángel González Novez
+
+# Ejecución
+make
+./practica4 ficheroply
+
+# Controles:
+    # Modo práctica 4:
+    1 --> Sombreado plano
+    2 --> Sombreado suave
+    4 --> Salir de modo práctica 4
+    A --> Aumentar el valor de beta
+    Z --> Disminuir el valor de beta
+    X --> Aumentar el valor de alpha
+    C --> Disminuir el valor de alpha
+
+    # Modo NO práctica 4:
+        1 --> Activar objeto PLY
+        2 --> Activar objeto por revolucion
+        3 --> Activar objeto jerárquico
+        4 --> Entrar en modo práctica 4
+        # Modo jerárquico:
+            z --> pierna izquierda atrás
+            Z --> pierna izquierda adelante
+            x --> pierna derecha atrás
+            X --> pierna derecha adelante
+            c --> brazo izquierdo atrás
+            C --> brazo izquierdo adelante
+            v --> brazo derecho atrás
+            V --> brazo derecho adelante
+            b --> mira izquierda
+            n --> mira derecha
+            (Además de los números para cambiar de práctica por supuesto)

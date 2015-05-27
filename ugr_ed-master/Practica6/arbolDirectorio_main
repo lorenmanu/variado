@@ -1,0 +1,245 @@
+/*! \mainpage SoED 
+ *
+\version v0
+\author  Juan F. Huete
+
+\tableofcontents
+
+
+
+\section intro_sec Introducción
+
+ En esta práctica nuestro objetivo es trabajar con una estructura gerárquica, en concreto un árbol general (clase tree<T>). En ella el alumno practicará los conceptos básicos de árboles, realizará recorridos, y en general profundizará en el uso de las estructuras de datos gerárquicas complejas como es el tipo tree (definido en tree.h)
+
+
+
+\section  problema Sistema Operativo de Estructuras de Datos (SoED)  
+
+Toda la información, ya sean textos, imágenes, o información para la configuración del sistema, se almacena en "ficheros", que a su vez se guardan en directorios. Los ficheros son la estructura empleada por el sistema operativo para almacenar información en un dispositivo físico como un disco duro, un disquete, un CD-ROM. 
+
+En esta práctica implementaremos un simulador para un sistema de archivos, llamado SoED (Sistema operativo Estructuras de Datos). Nuestro sistema será multiusuario, por lo que para gestionarlo necesitaremos de dos partes esenciales, por un lado un gestor de usuarios y por otro un árbol de directorios. 
+
+
+\subsection usuarios Gestor de Usuarios
+Consideraremos un sistema multiusuario, por lo tanto, la tarea de añadir, modificar, eliminar y en general administrar usuarios se convierte en algo no solo rutinario, sino importante. Los usuarios en SoED se identifican por un identificador de usuario, UserID. Cada usuario solo podra ver aquellas entradas de las que sea propietario (las haya generado). 
+
+Podemos distinguir dos tipos esenciales de usuarios:
+\li usuario root (superusuario) que tiene privilegios sobre todo el sistema, pudiendo acceder a todos los directorios/archivos del sistema, independientemente de su propietario. 
+\li usuarios normales. Solo tienen privilegios sobre las entradas que cuelgan a partir de su directorio de trabajo.
+
+\subsection arbol Arbol de Directorios
+
+ El árbol de directorios  es una herramienta que nos ayuda a saber dónde se encuentra un archivo en disco.  En el árbol se distinguen dos tipos de entradas (ver figura):
+
+\image html direct.jpg
+\image latex direct.jpg
+
+\li Archivos o ficheros ordinarios: Son los elementos que contienen a indormación del usuario (fotos, documentos, etc.)
+
+
+ \li Directorios (o carpetas): Es un archivo especial que contiene otras entradas (ficheros/directorios)
+
+Para cada entrada (archivo/directorio) debemos conocer los siguientes datos,
+\li \b Nombre  el cual debe cumplir unas ciertas reglas:
+  -#     Un nombre de entrada es un string de caracteres. Se puede utilizar cualquier carácter que sean letras {a,...,z,A,...,Z}, números {0,...,9} y el caracter '.'
+  -#   Las letras mayúsculas y minúsculas se consideran diferentes, y por lo tanto no es lo mismo carta.txt que Carta.txt ó carta.Txt.
+  -# Todos los nombres de directorios del sistema acaban con el caracter de barra inclinada '/'.
+
+\li \b Propietario: Identificador del usuario al que pertenece la entrada (quien lo creó). Un usuario sólo podrá acceder a las entradas que cuelgan de su directorio de trabajo (salvo el usuario root, que tiene acceso a todas las entradas en el sistema).
+
+\li \b Tama: Nos indica el tamaño de la entrada. En nuestro caso, como no existen realmente los archivos haremos las siguientes suposiciones:
+  -#  Un directorio tiene tamaño cero
+  -#  Un archivo tendrá un tamaño en Kbytes que será conocido en el momento de creación del mismo.
+
+Como es normal, en nuestro sistema no permitiremos que haya dos usuarios con el mismo UserID, ni tampoco que hayas dos entradas dentro de un mismo directorio con el mismo nombre. Esto nos permitirá asegurar que no tenemos dos entradas iguales dentro del sistema
+
+
+En un arbol de directorio, visto de forma global (en la siguiente imagen podemos ver el árbol de directorios de linux), se verifica que todas las entradas  cuelgan de un directorio principal llamado "raíz", que se representa como "/". El directorio raíz es la base para todo el arbol, es allí donde están contenidos todos las entradas del sistema, este directorio es propiedad del usuario "root". El camino completo hasta la raíz se representa como una concatenación  de nombres de ficheros/directorios, separadas por la barra inclinada (/). Por ejemplo, 
+ "/home/luis/ED/practicas/practica2/pract2.txt"
+
+\image html indice.jpg
+\image latex indice.jpg
+
+
+En todo momento, para cada usuario podemos distinguir dos directorios:
+\li Directorio raíz. Es el directorio del que cuelgan todos las entradas de las que es propietario. Por definición, el directorio raíz para el usuario "root" es la raíz del árbol, "/". Para el resto de los usuarios, su directorio raíz cuelga de un directorio que llamaremos "home/". El directorio raíz del usuario se creará cuando éste sea añadido al sistema, y tendrá como nombre el UserID. Así, al añadir los usario "pedro" y "sara" al sistema, sus directorios raíz serán "/home/pedro/" y "/home/sara/", respectivamente. El directorio raíz del usuario se puede identificar como "~/"
+
+\li Directorio de trabajo, que nos indica en que directorio se encuentra actualmente el usuario. El usuario sólo puede ver los elementos que hay en su directorio de trabajo. Sin embargo el sistema proporcionará comandos que permitan a un usuario moverse libremente por todos los directorios de los que es propietario, cambiando así su directorio de trabajo. El directorio de trabajo se denotará como "./"
+
+
+
+\section esp Trabajando con SoED
+
+Para gestionar nuestro sistema operativo, debemos de permitir añadir y borrar usuarios, así como que un usuario pueda añadir y borrar ficheros y/o directorios,   que un usario se mueva  por el árbol de directorios etc. Todos estos métodos los podemos encontrar en la especificación del la clase SoED, proporcionada en el fichero SoED.h
+
+Además de la propia clase, SoED, podemos destacar distintos el tipo de datos:
+\li SoED::path   -> string que nos permite referenciar a un camino en el sistema. Como hemos dicho, un path puede ser 
+-# /home/usuario/dir1/dir11/ si es un nombre de directorio
+-# /home/usario/dir1/fichero.dat si es un nombre de fichero.
+Como se ha comentado, cuando si consideramos un camino completo tenemos tres alternativas para describirlo. Supongamos que consideramos el usuario "pedro", que se encuentra en  directorio de trabajo "/home/pedro/ED/", las tres alternativas siguietnes harían referencia al directorio DIR, que se encontraría como subdirectorio de ED:
+
+-  dir ="/home/pedro/ED/DIR/"
+-  dir ="~/ED/DIR/"
+-  dir ="./DIR/"
+
+\li SoED::userID -> String que representa un identificador de usuario
+
+
+\li SoED::error -> Representa un codigo de error
+Los códigos de error son
+--  0. operación correcta
+--  1. camino incorrecto (no existe)
+--  2. un usario no tiene permiso para acceder al camino
+--  3. directorio vacío
+
+\li SoED::size_type -> Representa el tamaño de los ficheros.
+
+A modo de ilustración, el siguiente trozo de código nos permite comprender las funcionalidades de nuestro sistema operativo. 
+
+\code
+//Gestion del sistema
+
+SoED sistema;
+SoED::path camino; 
+list<SoED::path> l;
+list<SoED::path>::iterator it;
+
+sistema.useradd("pedro");
+sistema.useradd("sara");
+
+sistema.mkdir("pedro","./ED/");
+sistema.cd("pedro","./ED/");
+sistema.mkdir("pedro","./DIR");
+sistema.mkdir("pedro","./practica6/");
+sistema.cd("pedro","practica6/");
+sistema.mkFile("pedro","datos.txt",100);
+sistema.mkFile("pedro","codigo.cpp",30);
+camino = sistema.pwd("pedro");
+sistema.mkdir("pedro","/home/pedro/nuevo/");
+sistema.cd("pedro");
+sistema.rm("pedro","/home/pedro/ED/practica6/datos.txt");
+.....
+l = sistema.ls("pedro");
+for (it =l.begin();it!=l.end();++it)
+  cout << *it<< endl;
+
+sistema.mkdir("sara","./ED/");
+sistema.mkdir("sara","./OTRA/");
+sistema.cd("sara","./ED/");
+sistema.mkFile("sara","misdatos.txt",100);
+
+sistema.mv("sara","/home/sara/ED/carta.txt","/home/sara/");
+sistema.mv("sara","/home/sara/ED/","/home/sara/OTRA/");
+sistema.cp("sara","home/sara/carta.txt","./");
+sistam.du("sara","~/");
+.....
+
+l = sistema.locate("sara","ED");
+...
+l=sistema.locate("root","ED");
+l = sistema.treeList("root","/");
+
+sistema.who();
+sistema.du("root","/");
+
+
+\endcode
+
+
+
+
+
+\section doc Generar la Documentación.
+
+Al igual que en la práctica anterior la documentación se entrega mediante un fichero pdf, así como mediante un fichero zip que contiene todos los fuentes junto a los archivos necesarios para generar la documentación (en latex y html). Para generar los ficheros html con la documentación de la misma es suficiente con ejecutar desde la línea de comando
+
+\code
+doxygen dox_SoED
+\endcode
+
+Como resultado nos genera dos directorios, uno con la documentación en html y el otro con la documentación en latex. Para generar la documentación en pdf podemos ejecutar
+
+\code 
+cd latex
+make
+\endcode
+
+Al hacer make se ejecuta una llamada al programa latex (si lo tenemos instalado) que como salida nos genera el fichero refman.pdf 
+
+\section comp Ficheros entregados y compilación
+
+Se entregan los siguientes ficheros
+
+\li tree.h  Especificación de tree<T> y tree<T>::node
+\li tree.hxx Implementación del tree<T>
+\li nodetree.hxx Implementación del tree<T>::node
+\li SoED.h Especificación del Sistema Operativo de Estructuras de Datos
+\li SoED.cpp Fichero donde se incluiran todas las implementaciones del SoED.h. En este fichero se han incluido dos metodos ya implementados,
+-# el primero, el constructor por defecto 
+-# el segundo,  es reading_SoED, que se puede utilizar para construir un subdirectorio de un usuario, llamado "def"
+\li pruebaSoED.cpp donde se incluiran el código necesario para probar el SoED
+
+\subsection Compilación
+
+Como en el SoED no se trabaja con plantillas, se pueden implementar los distintos métodos de la clase en el fichero SoED.cpp. Este fichero permite la compilación por separado, por lo que para generar el ejecutable deberíamos utilizar algo como
+\code
+g++ -c SoED.cpp
+g++ -c pruebaSoED.cpp
+g++ -o ejecutable SoED.o pruebaSoED.o
+\endcode
+o directamente
+\code
+g++ -o ejecutable SoED.cpp pruebaSoED.cpp
+\endcode
+
+
+Pasamos a detallar cada una de las partes de la práctica.
+
+\section rep Representación de SoED
+
+En primer lugar, veremos lo que será una entrada del directorio. Para ello consideramos la siguiente estructura
+\code
+ struct entrada{
+   string nombre; //nombre fichero/directorio
+   size_type tama; //tama del fichero
+   userID propietario;
+   };
+\endcode
+Donde \b nombre representa en nombre de la entrada, en este caso, cuando es un directorio, el último caracter debe ser '/'.
+
+El árbol de directorio se representará como un tree<entrada>
+\code
+ tree<entrada> arbol;
+\endcode
+ Cuando se construye el sistema (constructor), se generarán tanto el directorio raíz "/" como el directorio "/home/", que serán propiedad del usuario root.  
+
+Para cada usuario del sistema debemos conocer dos elementos de información, su directorio raíz y su directorio de trabajo (o directorio actual).Para la gestión de esta información utilizaremos un map (diccionario), cuya clave es el nombre de usuario y cuya definición será un par que contiene estos dos directorios.  Aunque un usuario puede ver un directorio como una cadena (string), internamente, un directorio no es más que un nodo del árbol.  Por tanto, la estructura que nos permite gestionar a los usuarios es 
+\code
+map<string, pair< tree<entrada>::node , tree<entrada>::node >  > users; 
+\endcode
+
+donde para un usuario x, 
+\code
+users[x].first hace referencia al directorio por defecto
+users[x].second hace referencia al directorio actual.
+\endcode
+
+\section pido SE PIDE
+
+En concreto se pide implementar todos los métodos asociados al SoED y entregar un fichero donde se pruebe su correcto funcionamiento. 
+
+\subsection SP2 A ENTREGAR
+
+El alumno debe entregar los siguientes ficheros, con las correciones necesarias para poder trabajar 
+
+\li SoED.h Especificación del TDA SoED.
+\li SoED.cpp  implementación del SoED.
+\li pruebaSoED.cpp fichero de prueba del diccionario
+
+
+Dicha entrega se debe realizar antes del viernes 24 de Enero,  a las 20:00 horas (pm).
+
+*/
+
+
+

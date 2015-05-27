@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% comment %}
+--------------------------------------------------------------------------------
+DAI - Desarrollo de Aplicaciones para Internet
+Grado en Ingeniería Informática (UGR)
+
+Proyecto Final: Evita Controles
+
+2015 - Ernesto Serrano <erseco@correo.ugr.es>
+--------------------------------------------------------------------------------
+
+Esta página muestra unas graficas estadísticas con highcharts
+
+--------------------------------------------------------------------------------
+{% endcomment %}
+
+{% block title %}
+Server Info
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Statistics</h2>
+
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <hr>
+    <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+</div>
+{% endblock %}
+
+
+{% block js_include %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script>
+  var chart;
+  $(document).ready(function() {
+     var options = {
+        chart: {
+           renderTo: 'container',
+           type: 'line',
+        },
+        title: {
+            text: 'Controles avisados por mes',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '(Agosto 2014 - Enero 2015)',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero']
+        },
+        yAxis: {
+			min: 0,            
+			title: {
+                text: 'Numero de controles'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+           name: 'Avisados por usuarios registrados',
+           data: [10,8,12,17,13,0]
+       }, {
+           name: 'Avisados por usuarios de Twitter',
+           data: [8,4,12,3,11,0]
+        }]
+     };
+
+    var options2 = {
+        chart: {
+           renderTo: 'container2',
+            type: 'column'
+        },
+        title: {
+            text: 'Controles avisados por mes'
+        },
+        subtitle: {
+            text: '(Agosto 2014 - Enero 2015)'
+        },
+        xAxis: {
+            categories: ['Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Numero de controles'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.0f} usuarios</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+       series: [{
+           name: 'Avisados por usuarios registrados',
+           data: [10,8,12,17,13,0]
+       }, {
+           name: 'Avisados por usuarios de Twitter',
+           data: [8,4,12,3,11,0]
+        }]
+    };
+
+    $.getJSON("{% url 'points_users' %}", function(json1) {
+
+        val1 = [];
+        $.each(json1, function(key,value1) {
+            if(parseFloat(value1.fields.date.split("-",2)[1]) == 1){
+				options.series[0].data[5] = options.series[0].data[5] + 1; 
+			}
+/*           if(parseFloat(value1.fields.date.split("-",2)[1]) == 1){
+				options.series[0].data[0] = options.series[0].data[0] + 1; 
+			}
+			
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 2){
+				options.series[0].data[1] = options.series[0].data[1] + 1; 
+			}
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 3){
+				options.series[0].data[2] = options.series[0].data[2] + 1; 
+			}
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 4){
+				options.series[0].data[3] = options.series[0].data[3] + 1; 
+			}
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 5){
+				options.series[0].data[4] = options.series[0].data[4] + 1; 
+			}
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 6){
+				options.series[0].data[5] = options.series[0].data[5] + 1; 
+			}
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 7){
+				options.series[0].data[6] = options.series[0].data[6] + 1; 
+			}	
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 8){
+				options.series[0].data[7] = options.series[0].data[7] + 1; 
+			}	
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 9){
+				options.series[0].data[8] = options.series[0].data[8] + 1; 
+			}	
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 10){
+				options.series[0].data[9] = options.series[0].data[9] + 1; 
+			}	
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 11){
+				options.series[0].data[10] = options.series[0].data[10] + 1; 
+			}	
+			if(parseFloat(value1.fields.date.split("-",2)[1]) == 12){
+				options.series[0].data[11] = options.series[0].data[11] + 1; 
+			}	
+*/
+        });
+
+
+        val1 = [];
+        $.each(json1, function(key,value1) {
+            val1.push(parseFloat(value1.fields.date.split("-",2)[1]));
+        });
+        options2.series[0].data[5] = val1.length;
+
+     });
+     $.getJSON("{% url 'points_twitter' %}", function(json2) {
+        $.each(json2, function(key,value2) {
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 1){
+				options.series[1].data[5] = options.series[1].data[5] + 1; 
+			}
+		/*	if(parseFloat(value2.fields.date.split("-",2)[1]) == 1){
+				options.series[1].data[0] = options.series[1].data[0] + 1; 
+			}
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 2){
+				options.series[1].data[1] = options.series[1].data[1] + 1; 
+			}
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 3){
+				options.series[1].data[2] = options.series[1].data[2] + 1; 
+			}
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 4){
+				options.series[1].data[3] = options.series[1].data[3] + 1; 
+			}
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 5){
+				options.series[1].data[4] = options.series[1].data[4] + 1; 
+			}
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 6){
+				options.series[1].data[5] = options.series[1].data[5] + 1; 
+			}
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 7){
+				options.series[1].data[6] = options.series[1].data[6] + 1; 
+			}	
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 8){
+				options.series[1].data[7] = options.series[1].data[7] + 1; 
+			}	
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 9){
+				options.series[1].data[8] = options.series[1].data[8] + 1; 
+			}	
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 10){
+				options.series[1].data[9] = options.series[1].data[9] + 1; 
+			}	
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 11){
+				options.series[1].data[10] = options.series[1].data[10] + 1; 
+			}	
+			if(parseFloat(value2.fields.date.split("-",2)[1]) == 12){
+				options.series[1].data[11] = options.series[1].data[11] + 1; 
+			}
+		*/        
+		});
+        chart = new Highcharts.Chart(options);
+
+        val2 = [];
+        $.each(json2, function(key,value2) {
+            val2.push(parseFloat(value2.fields.date.split("-",2)[1]));
+        });
+        options2.series[1].data[5] = val2.length;
+        chart = new Highcharts.Chart(options2);
+     });
+
+
+  });
+  </script>
+
+
+
+{% endblock %}

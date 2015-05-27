@@ -1,0 +1,23 @@
+make
+./practica3
+
+Los controles son:
+z --> pierna izquierda atrás
+Z --> pierna izquierda adelante
+x --> pierna derecha atrás
+X --> pierna derecha adelante
+c --> brazo izquierdo atrás
+C --> brazo izquierdo adelante
+v --> brazo derecho atrás
+V --> brazo derecho adelante
+b --> mira izquierda
+n --> mira derecha
+w --> pequeña animación
+a --> ajedrez
+s --> sólido
+l --> alambre
+p --> puntos
+El resto de controles se mantienen de otras prácticas
+como son mover cámara,zoom,salir.
+
+

@@ -1,0 +1,102 @@
+/*! \mainpage  Diccionario
+ *
+\version v0
+\author  Juan F. Huete
+
+\tableofcontents
+
+ * \section intro_sec Introducción
+ *
+ * En la práctica anterior se os pidió la implementación del tipo diccionario. En esta práctica el objetivo es doble, por un lado permitir al alumno ver los errores cometidos en la práctica anterior y por otro lado seguir  avanzando  en el uso de las estructuras de datos, particularmente utilizando plantillas (templates) para la definición de tipos de datos genéricos. 
+
+
+Al igual que en la práctica anterior la documentación se entrega mediante un fichero pdf, así como mediante un fichero tgz que contiene todos los fuentes junto a los archivos necesarios para generar la documentación (en latex y html). Para generar los ficheros html con la documentación de la misma es suficiente con ejecutar desde la línea de comandos
+
+\code
+doxygen dox_diccionario
+\endcode
+
+Como resultado nos genera dos directorios, uno con la documentación en html y el otro con la documentación en latex. Para generar la documentación en pdf podemos ejecutar
+
+\code 
+cd latex
+make
+\endcode
+
+Al hacer make se ejecuta una llamada al programa latex (si lo tenemos instalado) que como salida nos genera el fichero refman.pdf 
+
+
+Pasamos a detallar cada una de las partes de la práctica.
+
+\section parte1 CORRECCION DE LA PRACTICA 2.
+
+En decsai podeis encontrar los códigos fuentes de las dos versiones del tipo diccionario, junto con un pequeño fichero de prueba que se ha diseñado para testear la validez de los métodos, prueba.cpp. Como antes, la compilación con una u otra versión se hace definiendo la constante DICC_V1 o DICC_V2 a la hora de compilar, esto es, 
+\code
+g++ -o ejecV1 -D DICC_V1 fichero.cpp
+g++ -o ejecV2 -D DICC_V2 fichero.cpp
+\endcode
+
+Los fichero que se entregan son 
+\li diccionario.h Especificación del TDA diccionario.
+\li diccionarioV1.hxx  primera versión del diccionario.
+\li diccionarioV2.hxx  segunda versión del diccionario.
+\li prueba.cpp fichero de prueba del diccionario
+
+
+
+\subsection IR INVARIANTE DE LA REPRESENTACION (Algunos comentarios)
+
+Como os habreis dado cuenta, es IMPOSIBLE que se verifique el invariante de la representación de forma completa ya que hay una "puerta" por la que se permite el acceso a los datos privada de la clase desde fuera de la misma, en concreto es el operator[]
+
+\code 
+int & diccionario::operator[](const string & s) 
+\endcode
+
+Un ejemplo del porque se viola el invariante de la representación lo podemos tener cuando, si el valor máximo del diccionario es la entrada ("hola",30) y el usuario de la clase, por ejemplo desde el main, ejecuta el comando dic["hola"]=45. Al salir del método, se modifica el valor de la entrada "hola" en el vector desde la función main: al devorver una referencia al entero (int &) asociado a la clave "hola", es desde el propio main cuando se accede a esa dirección y se almacena en la misma el valor 45, por lo que en este momento no se verificaría el invariante de la representación.   
+
+Como consecuencia, el invariante de la representación de la clase diccionario sólo podrá hacer referencia a los valores de la clave, ya que sólo desde los métodos de la clase diccionario  se puede acceder  a la misma. Por tanto esto nos garantiza que no podemos modificarla. Sin embargo, o no es posible  imponer restricciones sobre los valores de la definición, pues son modificables desde fuera de la clase.
+ 
+\subsection trabajo1 SE PIDE
+
+El alumno debe comparar su implementación con los distintos métodos entregados, hacer una crítica de los mismos, enviándome sus opiniones en un fichero pdf. En este caso, no es suficiente con indicar el hecho de que la implementaciones sean diferentes, sino en caso de serlo indicar cuáles han sido las dificultades encontradas a la hora de realizar la práctica. 
+
+Dicha crítica se debe entregar el lunes 11 de Noviembre, a las 23:59 horas.
+
+\section Parte2 USO DE PLANTILLAS (TEMPLATES)
+
+La segunda parte de la práctica está destinada al manejo de templates por parte del alumno. En concreto se pide dotar al diccionario la capacidad de poder definir un diccionario utilizando cualquier tipo de valores. Así, podriamos tener
+
+\code
+diccionario<string,int> D1;
+diccionario<int, string> D2;
+diccionario<string,string> D3;
+diccionario<float,string> D4;
+
+
+... 
+
+D1["Hola"]=3;
+D3["Hola"]="tres";
+D4[3.2]="tres con dos";
+...
+if (D1.find("Hola")==D1.null()) ....
+\endcode
+
+
+En este caso, para realizar  la práctica, el alumno deberá modificar tanto el fichero de especificación, diccionario.h, de forma que la propia especificación indique que trabaja con parámetros plantilla, como los ficheros de implementación (.hxx). 
+
+
+De igual forma se debe modificar el fichero prueba.cpp de manera que se demuestre el correcto comportamiento del diccionario cuando se instancia con distintos tipos.
+
+\subsection SP2 SE PIDE
+
+El alumno debe entregar los siguientes ficheros, con las correciones necesarias para poder trabajar con parámetros plantilla:
+
+\li diccionario.h Especificación del TDA diccionario.
+\li diccionarioV1.hxx  primera versión del diccionario.
+\li diccionarioV2.hxx  segunda versión del diccionario.
+\li prueba.cpp fichero de prueba del diccionario
+
+Dicha entrega se debe realizar antes de el Lunes 18 de Noviembre, a las 9:00 horas (am).
+
+*/

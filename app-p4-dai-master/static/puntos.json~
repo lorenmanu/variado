@@ -1,0 +1,38 @@
+[
+   {
+      "fields":{
+         "category":null,
+         "text":"Civilocos",
+         "date":"2015-01-08T11:51:06.330Z",
+         "user":"El Drogas",
+         "lat":41.1198087,
+         "lng":-7.6124474
+      },
+      "model":"evitacontroles.userpoint",
+      "pk":1
+   },
+   {
+      "fields":{
+         "category":null,
+         "text":"Civiles con perros",
+         "date":"2015-01-08T11:51:06.330Z",
+         "user":"Robe Iniesta",
+         "lat":42.1198087,
+         "lng":-6.0124474
+      },
+      "model":"evitacontroles.userpoint",
+      "pk":1
+   },
+   {
+      "fields":{
+         "category":null,
+         "text":"Civiles con pollas",
+         "date":"2015-04-08T11:51:06.330Z",
+         "user":"Robe In",
+         "lat":42.1198087,
+         "lng":-6.0124474
+      },
+      "model":"evitacontroles.userpoint",
+      "pk":1
+   }
+]

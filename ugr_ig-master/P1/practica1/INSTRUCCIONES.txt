@@ -1,0 +1,23 @@
+Para compilar usamos:
+	make
+Para ejecutar usamos:
+	./practica1 xxx.ply modo
+		o
+	./practica1
+
+Descripción ejecución:
+A)Se le pasan dos argumentos, uno con la ruta al fichero ply.
+Y otro con el modo inicial, este será un entero 0-4:
+	0 alambre
+	1 solido
+	2 ajedrez
+	3 puntos
+B)No se le pasan argumentos:
+	Dibuja un cubo inicialmente en modo 0(alambre)
+
+Tanto en A como en B,una vez en ejecución podemos alternar el modo con las teclas:
+	a alambre
+	s solido
+	d ajedrez
+	f puntos
+Para moverlo usaremos las flechas y para alejar/acercar zooom usamos RePag y AvPag

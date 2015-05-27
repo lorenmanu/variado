@@ -1,0 +1,382 @@
+<!--sax,doom, usar ruido en maps-->
+
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>P4 DAI</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./static/bootstrap/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./static/bootstrap/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index">DAI</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="index"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="rss">RSS</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="grafica">Highcharts</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="mapa">Maps</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="twitter">Twitter</a>
+                    </li>
+					% if logged_in == True:
+	                    <li class="page-scroll">
+							<a href="logout">${user}(Logout)</a>
+	                    </li>
+					% elif logged_in == False:
+						<li class="page-scroll">
+				    		<a href="login">Login</a>
+	                    </li>
+					% endif
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+	<!-- CUERPO PRINCIPAL -->
+    <section id="general">
+    <div class="container">
+	    <div class="row">
+			<div class="col-lg-12 text-center">
+				% if logged_in == False and page != 'register':
+                    <form class="navbar-form navbar-right" role="form" method="post" action="login">
+					<div class="form-group">
+	                    <input name="username" type="email" placeholder="username" class="form-control" required data-validation>
+                    </div><br>
+                    <div class="form-group">
+	                    <input name="password" type="password" placeholder="password" class="form-control" required data-validation>
+                    </div><br>
+                    <button type="submit" class="btn btn-success">Aceptar</button><br>
+                    <a href="register">Registrarse</a>
+                    </form>
+
+				% elif page == 'register':
+					<form class="navbar-form navbar-right" role="form" method="post" action="register">
+                    <div class="form-group">
+	                    <input name="username" type="email" placeholder="username" class="form-control" required data-validation>
+                    </div><br>
+                    <div class="form-group">
+	                    <input name="password" type="password" placeholder="password" class="form-control" required data-validation>
+                    </div><br>
+					 <div class="form-group">
+	                    <input name="passwordagain" type="password" placeholder="repita password" class="form-control" required data-validation>
+                    </div><br>
+					<div class="form-group">
+					<input type="checkbox" name="clauses" value="clauses" required data-validation> Aceptar <a href="" data-toggle="modal" data-target=".bs-condiciones-modal-lg">condiciones de uso</a>
+
+					<div class="modal fade bs-condiciones-modal-lg" tabindex="-1" role="dialog">
+  						<div class="modal-dialog modal-lg">
+    						<div class="modal-content">
+      							<h1>Condiciones de Uso</h1>
+Le rogamos que lea detenidamente las presentes condiciones antes de utilizar los Servicios de DAI. Al utilizar los Servicios de DAI, usted acepta quedar vinculado por las presentes condiciones. Ofrecemos una amplia gama de Servicios de DAI y en ocasiones pueden aplicarse condiciones adicionales. Además, cada vez que utilice cualquier Servicio de DAI, (por ejemplo: DAI MP3, Lista de Deseos, Cheques regalo o aplicaciones de DAI para dispositivos móviles), estará igualmente sujeto a los términos y condiciones generales y a las condiciones particulares aplicables a dichos Servicios de DAI (las "Condiciones Generales de los Servicios"). Las Condiciones Generales de los Servicios prevalecerán sobre las presentes Condiciones de Uso en caso de discrepancia entre ambas.
+    						</div>
+  						</div>
+					</div>
+					</div><br>
+					% if len(error) > 4:
+						<br>${error}<br>
+					% endif
+                    <button type="submit" class="btn btn-success">Aceptar</button>
+                    </form>
+				% elif page == 'index':
+				    <h1>Bienvenido a la practica 4</h1>
+				% elif page == 'rss':
+					<h1>RSS</h1>
+					<ul>
+					% for prompt in items:
+	                    <li><a href="${prompt.link}">${prompt.title}</a></li>
+                    % endfor
+                    </ul>
+					<h1>etree parser</h1>
+					<ul>
+		                <li>n_articulos = ${n_articulos}</li>
+						<li>n_imagenes = ${n_imagenes}</li>
+						<li>n_search = ${n_search}</li>
+                    </ul>
+				% elif page == 'grafica':
+					<h1>HighCharts</h1>
+					<div id="grafica" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+                    <form name="main" method="post">
+                        ${form.render()}
+                    </form>
+				% elif page == 'mapa':
+					<h1>Google Maps</h1>
+					<div id="map-canvas"></div>
+				% elif page == 'twitter':
+					<h1>Twitter</h1>
+					<div id="grafica_twitter" style="min-width: 310px; height: 310px; max-width: 600px; margin: 0 auto"></div>
+            <a class="twitter-timeline"  href="https://twitter.com/hashtag/corrupcion" data-widget-id="540204029528535040">Tweets sobre #corrupcion</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^https:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		    	% endif
+			</div>
+        </div>
+    </div>
+	</section> 
+
+
+    <!-- PIE DE PAGINA -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Practica 4</h3>
+                        <p>Jesus Angel Gonzalez Novez<br>DAI, 4º</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Contacta</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://www.facebook.com/jesusangel.gonzaleznovez" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/u/0/100886959369029556724/" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/jesusgon90" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/profile/view?id=378391116" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Jesusgn 2014
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+  
+<!-- SECCION PARA ToDO LO DE JAVASCRIPT -->
+    <!-- jQuery -->
+    <script src="./static/bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="./static/bootstrap/js/classie.js"></script>
+    <script src="./static/bootstrap/js/cbpAnimatedHeader.js"></script>
+
+    <!-- HighCharts JavaScript-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//code.highcharts.com/highcharts.js"></script>
+	
+	<!--GRAFICA-->
+	<script type="text/javascript" charset="utf-8" async defer>
+    var chart;
+
+
+    $(function () {
+
+    // Set up the chart
+    chart = new Highcharts.Chart({
+		chart: {
+            renderTo: 'grafica',
+        },
+        title: {
+            text: 'Grafica linear',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Introduzca valores',
+            x: -20
+        },
+        yAxis: {
+            title: {
+                text: 'Dinero(€)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '€'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+			name: 'Ingresos', 
+            data: ${array} 
+				                               
+        	}]
+    });
+});	
+	</script>
+
+% if page == 'mapa':
+    <!-- GOOGLE MAPS -->
+	<style>
+    html, body, #map-canvas {
+        height: 80%;
+        margin: 0px;
+        padding: 0px
+    }
+    </style>
+	<script type="text/javascript">
+	function leer_json(){
+	$.getJSON("./static/puntos.json", function(json1) {
+          $.each(json1, function(key, data) {
+            var infowindow = new google.maps.InfoWindow;
+			var i = 0;
+            var latLng = new google.maps.LatLng(data.fields.lat, data.fields.lng); 
+            // Creating a marker and putting it on the map
+			var reg = './static/twitter.png'			
+			var marker = new google.maps.Marker({
+                position: latLng,
+                title: data.text,
+				icon: reg
+            });
+            marker.setMap(map);
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+         		return function() {
+             		infowindow.setContent(data.fields.text + ', escrito por ' + data.fields.user + ', ' + data.fields.date);
+             		infowindow.open(map, marker);
+         	    }
+    		 })(marker, i));
+			i = i + 1;
+          });
+        });
+	}
+   </script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+	var map;
+	function initialize() {
+		var mapOptions = {
+    		zoom: 7,
+    		center: new google.maps.LatLng(37.197014,-3.624251)
+  		};
+  		map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+			leer_json();
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+% endif
+
+% if page == 'twitter':
+	<!-- Grafica Twitter -->
+	<script>
+	$(function () {
+    $('#grafica_twitter').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 1,//null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Seguidores en Twitter'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y:.1f}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Seguidores',
+            data: [
+                ['Rajoy', ${rajoy.followers_count}],
+                ['Pedro Sanchez', ${pedro.followers_count}],
+                ['Pablo Iglesias', ${iglesias.followers_count}],
+				['Cayo Lara', ${cayo.followers_count}]
+            ]
+        }]
+    });
+	});
+	</script>
+	% endif
+
+
+	
+    <!-- Custom Theme JavaScript -->
+    <script src="./static/bootstrap/js/freelancer.js"></script>
+
+</body>
+
+</html>
