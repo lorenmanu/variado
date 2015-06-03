@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Práctica Evaluable I TW</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="./../css/bootstrap.min.css" rel="stylesheet">
+	<link href="./../css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./../img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./../img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./../img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="./../img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="./../img/favicon.png">
+  
+	<script type="text/javascript" src="./../js/jquery.min.js"></script>
+	<script type="text/javascript" src="./../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./../js/scripts.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h1>
+					Tienda de informática
+				</h1>
+			</div>
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="./../index.html">Portada</a>
+						</li>
+						<li class="active">
+							<a href="./../portatiles.html">Portátiles</a>
+						</li>
+						<li>
+							<a href="./../sobremesa.html">Sobremesa</a>
+						</li>
+						<li>
+							<a href="./../componentes.html">Componentes</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control">
+						</div> <button type="submit" class="btn btn-default">Buscar</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="./../suscribir.html">Suscribirse</a>
+                        </li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi cuenta<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Iniciar sesión</a>
+								</li>
+								<li>
+									<a href="#">Registrarse</a>
+								</li>
+								<li>
+									<a href="#">Contacto</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+            <center><h1>Portátiles</h1></center>
+		</div>
+	</div>
+
+<!-- CUERPO PRINCIPAL -->
+	<div class="row clearfix">
+		<div class="col-md-7 column">
+            <h2>Acer X2509</h2>
+            <div class="carousel slide" id="carousel-283433">
+	            <ol class="carousel-indicators">
+		            <li class="active" data-slide-to="0" data-target="#carousel-283433">
+		            </li>
+		            <li data-slide-to="1" data-target="#carousel-283433">
+		            </li>
+		            <li data-slide-to="2" data-target="#carousel-283433">
+		            </li>
+	            </ol>
+	            <div class="carousel-inner" align="center">
+		            <div class="item active">
+			            <img alt="" src="portatil_acer_x2509/1.png" />
+		            </div>
+		            <div class="item">
+			            <img alt="" src="portatil_acer_x2509/2.png" />
+		            </div>
+		            <div class="item">
+			            <img alt="" src="portatil_acer_x2509/3.png" />
+		            </div>
+	            </div> 
+                <a class="left carousel-control" href="#carousel-283433" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a> 
+                <a class="right carousel-control" href="#carousel-283433" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+            <dl>
+	            <dt>
+		            Descripción
+	            </dt>
+	            <dd>
+		            Portabilidad, fiabilidad y eficiencia: las características que definen al Extensa 15 y
+                    lo hacen el compañero perfecto en su negocio. Gracias a su diseño compacto y su tecnología 
+                    probada, responde a las necesidades diarias allá donde le lleve un duro día de trabajo.
+	            </dd>
+	            <dt>
+		            Características
+	            </dt>
+	            <dd>
+                    <ul>
+                        <li>Procesador Intel Pentium N3540 (2.16 GHz)
+                        <li>Memoria RAM 4GB DDR3L SODIMM 
+                        <li>Disco duro 500 GB (5400 rpm S-ATA)
+                        <li>Almacenamiento óptico Super Multi Dual Layer (S-ATA)
+                        <li>Display 15.6" LED HD matriz activa  (1366 x 768) 16:9 
+                        <li>Controlador gráfico Intel HD Graphics
+                        <li>Conectividad
+                        <ul><li>LAN 10/100/1000
+                        <li>802.11 b/g/n</ul>
+                        <li>Cámara de portátil Sí
+                        <li>Micrófono Sí
+                        <li>Batería 6 celdas Ion de litio 2500mAh
+                        <li>Conexiones
+                        <ul><li>1 x VGA
+                        <li>1 x HDMI
+                        <li>1 x salida de auriculares
+                        <li>1 x entrada de micrófono
+                        <li>2 x USB 2.0
+                        <li>1 x USB 3.0
+                        <li>1 x RJ45</ul>
+                        <li>Lector de Tarjetas SD
+                        <li>Sistema operativo Microsoft Windows 8.1 64bits
+                        <li>Dimensiones (Ancho x Profundidad x Altura) 381.6 x 256 x 25.3 ~ 30.3 mm
+                        <li>Peso 2.5 kg
+                        <li>Color Negro
+                    </ul>
+	            </dd>
+                <dt>
+                    Precio
+                </dt>
+                <dd>
+                    395,00€
+                </dd>
+            </dl>
+            <h3>Opiniones de los clientes</h3>
+		</div>
+		<div class="col-md-5 column">
+            <h1> Productos relacionados</h1>
+			<h2>
+				HP M32
+			</h2>
+            <img alt="400x200" src="http://lorempixel.com/200/100/">
+			<p>
+                ...
+			</p>
+			<p>
+				<a class="btn" href="#">Ver detalles »</a>
+			</p>
+			<h2>
+				Sony M34
+			</h2>
+            <img alt="400x200" src="http://lorempixel.com/200/100/">
+			<p>
+                ...
+			</p>
+			<p>
+				<a class="btn" href="#">Ver detalles »</a>
+			</p>
+            <hr>
+            <h1>Anuncios</h1>
+            <img alt="400x200" src="http://lorempixel.com/200/400/"><br><br>
+		</div>
+	</div>
+</div>
+
+<!-- FOOTER -->
+  <hr>
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="http://www.ugr.es">© 2015 Universidad de Granada.</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#patrocinadores">Patrocinadores</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#terms">Términos legales</a></li>
+                </ul>
+            </div>
+        </div>
+    <div class="modal fade" id="patrocinadores" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <h4 class="modal-title" id="myModalLabel">Patrocinadores</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>UGR,ETSIIT</h3>
+                </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <h4 class="modal-title" id="myModalLabel">Términos legales</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Esta web es una práctica de Tecnologías Web</h3>
+                </div>
+        </div>
+      </div>
+    </div>
+
+    </footer>
+
+</body>
+</html>
