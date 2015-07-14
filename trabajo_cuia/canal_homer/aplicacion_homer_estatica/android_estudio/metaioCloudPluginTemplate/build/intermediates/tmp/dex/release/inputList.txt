@@ -1,0 +1,6 @@
+/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/classes/release
+/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/support-annotations-21.0.2-db1512c33d9c95ce6d6bbda94bf7e8a86ab3601f.jar
+/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/classes-a29322386ca8a7f486e45adc35a4f9ba44ac0fef.jar
+/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/internal_impl-21.0.2-05bfc7fd430c5bc0d4c8147c9354c9340f51a627.jar
+/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/metaiosdk-badb6155d81fa324255b2370395544e40fd0fc94.jar
+/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/classes-9c0346b7fab0e7ff86ce400ab1366604e09ce429.jar

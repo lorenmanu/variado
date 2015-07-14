@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <size android:height="1dip" />
+    <solid android:color="@color/metaiocolor" />
+</shape><!-- From: file:/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioSDK/res/drawable/divider.xml --><!-- From: file:/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/exploded-aar/android_estudio/MetaioSDK/unspecified/res/drawable/divider.xml -->

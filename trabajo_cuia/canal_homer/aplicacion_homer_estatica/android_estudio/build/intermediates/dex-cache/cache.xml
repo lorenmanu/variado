@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/classes-9c0346b7fab0e7ff86ce400ab1366604e09ce429.jar" />
+    </item>
+    <item
+        jar="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/exploded-aar/android_estudio/MetaioSDK/unspecified/libs/metaiosdk.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="1c8d9e3d40ae2b65f4ef4adf7ddc62e484388b37">
+        <dex dex="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/metaiosdk-badb6155d81fa324255b2370395544e40fd0fc94.jar" />
+    </item>
+    <item
+        jar="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/internal_impl-21.0.2-05bfc7fd430c5bc0d4c8147c9354c9340f51a627.jar" />
+    </item>
+    <item
+        jar="/Users/lorenzo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/support-annotations-21.0.2-db1512c33d9c95ce6d6bbda94bf7e8a86ab3601f.jar" />
+    </item>
+    <item
+        jar="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/exploded-aar/android_estudio/MetaioSDK/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="2ec56a99ae3e263f574bf73a901c6b85be45b66d">
+        <dex dex="/Users/lorenzo/Desktop/cuia/canal_homer/aplicacion_homer/android_estudio/metaioCloudPluginTemplate/build/intermediates/pre-dexed/release/classes-a29322386ca8a7f486e45adc35a4f9ba44ac0fef.jar" />
+    </item>
+
+</items>

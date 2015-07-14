@@ -1,0 +1,4 @@
+include ':Template'
+project(':Template').projectDir = new File('metaioCloudPluginTemplate')
+include ':MetaioSDK'
+project(':MetaioSDK').projectDir = new File('metaioSDK')
